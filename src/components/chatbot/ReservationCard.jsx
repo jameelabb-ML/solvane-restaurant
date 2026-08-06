@@ -1,7 +1,13 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { CalendarCheck, Users, Mail, Phone, MessageSquare, Info } from 'lucide-react'
+import { CalendarCheck, Users, Mail, Phone, MessageSquare } from 'lucide-react'
+
+const generateConfirmationCode = () =>
+  `SLV-${Math.random().toString(36).slice(2, 7).toUpperCase()}`
 
 export default function ReservationCard({ data }) {
+  const confirmationCode = useMemo(generateConfirmationCode, [])
+
   if (!data) return null
 
   const rows = [
@@ -19,11 +25,14 @@ export default function ReservationCard({ data }) {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="max-w-[85%] overflow-hidden rounded-2xl border border-gold-200 bg-gradient-to-br from-gold-50 to-white shadow-soft dark:border-gold-400/20 dark:from-charcoal-800 dark:to-charcoal-800"
     >
-      <div className="flex items-center gap-2 border-b border-gold-100 bg-gold-100/50 px-4 py-2.5 dark:border-white/10 dark:bg-white/5">
-        <CalendarCheck size={15} className="text-gold-600 dark:text-gold-300" />
-        <span className="text-xs font-semibold uppercase tracking-wide text-gold-700 dark:text-gold-300">
-          Reservation Captured
-        </span>
+      <div className="flex items-center justify-between gap-2 border-b border-gold-100 bg-gold-100/50 px-4 py-2.5 dark:border-white/10 dark:bg-white/5">
+        <div className="flex items-center gap-2">
+          <CalendarCheck size={15} className="text-gold-600 dark:text-gold-300" />
+          <span className="text-xs font-semibold uppercase tracking-wide text-gold-700 dark:text-gold-300">
+            Reservation Confirmed
+          </span>
+        </div>
+        <span className="text-[11px] font-medium text-gold-600/80 dark:text-gold-300/70">{confirmationCode}</span>
       </div>
 
       <div className="flex flex-col gap-2.5 px-4 py-3.5">
@@ -34,11 +43,6 @@ export default function ReservationCard({ data }) {
             <span>{row.label}</span>
           </div>
         ))}
-
-        <div className="mt-1 flex items-start gap-1.5 rounded-lg bg-white/70 p-2.5 text-[11px] leading-relaxed text-charcoal-400 dark:bg-white/5 dark:text-cream-100/40">
-          <Info size={12} className="mt-0.5 shrink-0" />
-          <span>This is a portfolio demo — no real reservation was submitted. For an actual booking, please call us.</span>
-        </div>
       </div>
     </motion.div>
   )

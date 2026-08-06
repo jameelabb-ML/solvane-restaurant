@@ -33,7 +33,13 @@ export default function GiftCards() {
           <SectionHeading eyebrow="Choose an Amount" title="Gift card options" />
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {giftCardOptions.map((option, i) => (
-              <GiftCardOption key={option.id} option={option} index={i} onSelect={setSelected} />
+              <GiftCardOption
+                key={option.id}
+                option={option}
+                index={i}
+                onSelect={setSelected}
+                selected={selected?.id === option.id}
+              />
             ))}
           </div>
         </div>

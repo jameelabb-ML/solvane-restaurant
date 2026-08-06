@@ -7,6 +7,9 @@ export default function LocationSection() {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     restaurant.contact.mapEmbedQuery
   )}`
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+    restaurant.contact.mapEmbedQuery
+  )}&output=embed`
 
   return (
     <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
@@ -45,25 +48,18 @@ export default function LocationSection() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.1} className="relative min-h-[340px] overflow-hidden rounded-3xl border border-stone-200 bg-stone-100 shadow-soft dark:border-white/10 dark:bg-charcoal-800">
-          <div className="absolute inset-0 bg-noise opacity-60" />
-          <div
-            className="absolute inset-0 opacity-40 dark:opacity-20"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(176,141,83,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(176,141,83,0.15) 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
-            }}
+        <FadeIn
+          delay={0.1}
+          className="relative min-h-[340px] overflow-hidden rounded-3xl border border-stone-200 shadow-soft dark:border-white/10"
+        >
+          <iframe
+            title={`Map showing ${restaurant.name}'s location`}
+            src={mapEmbedUrl}
+            className="h-full min-h-[340px] w-full grayscale-[15%] contrast-[1.05] sepia-[8%]"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
           />
-          <div className="relative flex h-full min-h-[340px] flex-col items-center justify-center gap-3 p-8 text-center">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-charcoal text-gold-300 shadow-lift dark:bg-gold-400 dark:text-charcoal-900">
-              <MapPin size={20} />
-            </span>
-            <p className="font-display text-lg text-charcoal dark:text-cream-100">Solvane</p>
-            <p className="max-w-xs text-sm text-charcoal-500 dark:text-cream-100/60">
-              Interactive map placeholder — an embedded map will appear here in production.
-            </p>
-          </div>
         </FadeIn>
       </div>
     </section>

@@ -149,9 +149,6 @@ export default function ReservationForm() {
             <Button type="submit" size="lg" className="mt-2 w-full sm:w-auto sm:self-start">
               Request Reservation
             </Button>
-          <p className="text-xs text-charcoal-400 dark:text-cream-100/40">
-            This is a portfolio demo — no reservation will actually be submitted or emailed.
-          </p>
         </motion.form>
       )}
     </div>

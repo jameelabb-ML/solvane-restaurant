@@ -21,8 +21,8 @@ export const giftCardFaqs = [
     answer: 'Digital gift cards are delivered by email within minutes. Physical cards can be mailed or held for pickup.',
   },
   {
-    question: 'Is this a real purchase?',
-    answer: 'This is a portfolio demonstration — gift card purchases on this site are illustrative only and are not processed.',
+    question: 'Can I redeem a gift card both online and in the restaurant?',
+    answer: 'Yes — simply mention your gift card when booking, or present it at your table before the bill arrives.',
   },
 ]
 

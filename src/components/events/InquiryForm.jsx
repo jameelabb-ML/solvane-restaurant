@@ -36,8 +36,7 @@ export default function InquiryForm() {
         <CheckCircle2 size={36} className="text-gold-500" />
         <h3 className="heading-md text-charcoal dark:text-cream-100">Inquiry Sent</h3>
         <p className="max-w-sm text-sm text-charcoal-600 dark:text-cream-100/70">
-          Thank you, {form.name || 'there'}. Our events team would typically respond within two business days. This
-          is a portfolio demo, so no message was actually sent.
+          Thank you, {form.name || 'there'}. Our events team will respond within two business days.
         </p>
         <Button variant="outline" onClick={() => { setForm(initialState); setSubmitted(false) }}>
           Send Another Inquiry
@@ -86,9 +85,6 @@ export default function InquiryForm() {
         <Button type="submit" size="lg" className="mt-2 w-full sm:w-auto sm:self-start">
           Submit Inquiry
         </Button>
-        <p className="text-xs text-charcoal-400 dark:text-cream-100/40">
-          This is a portfolio demo — inquiries are not sent anywhere.
-        </p>
       </motion.form>
     </AnimatePresence>
   )

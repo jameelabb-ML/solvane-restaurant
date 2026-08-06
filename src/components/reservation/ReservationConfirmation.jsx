@@ -1,8 +1,21 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle2, Calendar, Clock, Users } from 'lucide-react'
+import { CheckCircle2, Calendar, Clock, Users, User } from 'lucide-react'
 import Button from '../ui/Button.jsx'
 
+const generateConfirmationCode = () =>
+  `SLV-${Math.random().toString(36).slice(2, 7).toUpperCase()}`
+
+const formatDate = (value) => {
+  if (!value) return value
+  const parsed = new Date(`${value}T00:00:00`)
+  if (Number.isNaN(parsed.getTime())) return value
+  return parsed.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
+}
+
 export default function ReservationConfirmation({ data, onReset }) {
+  const confirmationCode = useMemo(generateConfirmationCode, [])
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -20,22 +33,33 @@ export default function ReservationConfirmation({ data, onReset }) {
       </motion.span>
 
       <div>
-        <h3 className="heading-md text-charcoal dark:text-cream-100">Request Received</h3>
+        <h3 className="heading-md text-charcoal dark:text-cream-100">Reservation Confirmed</h3>
         <p className="mt-2 max-w-sm text-sm text-charcoal-600 dark:text-cream-100/70">
-          Thank you, {data.name}. This is a portfolio demo, so no reservation has actually been made — but here is
-          what a confirmation would include.
+          Thank you, {data.name}. We look forward to welcoming you to Solvane. A confirmation has been sent to{' '}
+          {data.email}.
         </p>
       </div>
 
-      <div className="grid w-full max-w-sm grid-cols-1 gap-3 rounded-2xl border border-stone-200 bg-cream-50 p-5 text-left dark:border-white/10 dark:bg-charcoal-800">
-        <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
-          <Calendar size={16} className="text-gold-500" /> {data.date || 'Date pending'}
+      <div className="w-full max-w-sm rounded-2xl border border-stone-200 bg-cream-50 text-left dark:border-white/10 dark:bg-charcoal-800">
+        <div className="flex items-center justify-between border-b border-stone-200 px-5 py-3 dark:border-white/10">
+          <span className="text-xs font-semibold uppercase tracking-widest2 text-charcoal-400 dark:text-cream-100/40">
+            Reservation Details
+          </span>
+          <span className="text-xs font-medium text-gold-600 dark:text-gold-300">{confirmationCode}</span>
         </div>
-        <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
-          <Clock size={16} className="text-gold-500" /> {data.time || 'Time pending'}
-        </div>
-        <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
-          <Users size={16} className="text-gold-500" /> {data.guests} {Number(data.guests) === 1 ? 'Guest' : 'Guests'}
+        <div className="grid grid-cols-1 gap-3 p-5">
+          <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
+            <User size={16} className="text-gold-500" /> {data.name}
+          </div>
+          <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
+            <Calendar size={16} className="text-gold-500" /> {formatDate(data.date)}
+          </div>
+          <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
+            <Clock size={16} className="text-gold-500" /> {data.time}
+          </div>
+          <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
+            <Users size={16} className="text-gold-500" /> {data.guests} {Number(data.guests) === 1 ? 'Guest' : 'Guests'}
+          </div>
         </div>
       </div>
 

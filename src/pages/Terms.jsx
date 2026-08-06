@@ -4,37 +4,37 @@ const sections = [
   {
     heading: '1. Acceptance of Terms',
     paragraphs: [
-      'By accessing this website, you agree to these Terms & Conditions. Solvane is a fictional restaurant created for web design portfolio purposes; this page is a professional placeholder illustrating the structure of real restaurant terms of service.',
+      'By accessing or using this website, you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, please do not use this site.',
     ],
   },
   {
     heading: '2. Reservations',
     paragraphs: [
-      'Reservation requests submitted through this site are illustrative only and are not processed or confirmed. In a live environment, reservations would be subject to availability and our cancellation policy.',
+      'Reservation requests submitted through this site are subject to availability and confirmation. We recommend arriving within 15 minutes of your reserved time; tables held beyond that window may be released. Reservations can be modified or canceled up to 24 hours in advance by contacting us directly.',
     ],
   },
   {
     heading: '3. Gift Cards',
     paragraphs: [
-      'Gift card purchases shown on this site are for demonstration purposes only. No payment is collected, and no gift cards are issued through this demo.',
+      'Gift cards do not expire and may be redeemed for dining, private events, or beverage purchases. Gift cards are non-refundable and cannot be exchanged for cash except where required by law.',
     ],
   },
   {
     heading: '4. Intellectual Property',
     paragraphs: [
-      'All content on this site, including text, design and branding for the fictional Solvane restaurant, is provided for portfolio demonstration and may not be used to represent a real business.',
+      'All content on this site, including text, images, and branding, is the property of Solvane and may not be reproduced or used without permission.',
     ],
   },
   {
     heading: '5. Limitation of Liability',
     paragraphs: [
-      'This website is a demonstration project. It is provided "as is" without warranties of any kind, and is not associated with any real restaurant, business or service.',
+      'This website is provided "as is." While we strive for accuracy, menu items, pricing, and availability are subject to change without notice.',
     ],
   },
   {
     heading: '6. Changes to These Terms',
     paragraphs: [
-      'These placeholder terms may be updated at any time without notice, as this site exists solely as a portfolio example.',
+      'We may update these Terms & Conditions from time to time. Continued use of this site after changes are posted constitutes acceptance of the revised terms.',
     ],
   },
 ]

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { Sparkles, Gift } from 'lucide-react'
+import { Sparkles, Gift, Check } from 'lucide-react'
 import Button from '../ui/Button.jsx'
 
-export default function GiftCardOption({ option, index = 0, onSelect }) {
+export default function GiftCardOption({ option, index = 0, onSelect, selected = false }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -10,16 +10,22 @@ export default function GiftCardOption({ option, index = 0, onSelect }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
       className={`card-surface relative flex flex-col gap-5 overflow-hidden p-7 transition-shadow hover:shadow-card ${
-        option.popular ? 'ring-2 ring-gold-400' : ''
+        selected ? 'ring-2 ring-gold-500' : option.popular ? 'ring-2 ring-gold-400' : ''
       }`}
     >
-      {option.popular && (
-        <span className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full bg-gold-400 px-2.5 py-1 text-[11px] font-semibold text-charcoal-900">
+      {option.popular && !selected && (
+        <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-1 rounded-full bg-gold-400 px-2.5 py-1 text-[11px] font-semibold text-charcoal-900 shadow-soft">
           <Sparkles size={11} /> Most Popular
         </span>
       )}
 
-      <div className="relative flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-2xl bg-charcoal-900 p-5 text-cream-100">
+      {selected && (
+        <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-1 rounded-full bg-charcoal-900 px-2.5 py-1 text-[11px] font-semibold text-gold-300 shadow-soft dark:bg-gold-400 dark:text-charcoal-900">
+          <Check size={11} /> Selected
+        </span>
+      )}
+
+      <div className="relative z-0 flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-2xl bg-charcoal-900 p-5 text-cream-100">
         <div
           className="absolute inset-0 opacity-40"
           style={{

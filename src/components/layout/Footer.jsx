@@ -104,8 +104,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 text-xs text-cream-100/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {restaurant.name}. All rights reserved. A fictional restaurant created for portfolio purposes.</p>
-          <p>Designed &amp; built as a web development portfolio demo.</p>
+          <p>© {year} {restaurant.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

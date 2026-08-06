@@ -26,8 +26,7 @@ export default function ContactForm() {
         <CheckCircle2 size={32} className="text-gold-500" />
         <h3 className="heading-md text-charcoal dark:text-cream-100">Message Sent</h3>
         <p className="max-w-sm text-sm text-charcoal-600 dark:text-cream-100/70">
-          Thanks for reaching out, {form.name || 'friend'}. This is a portfolio demo, so no message was actually
-          delivered.
+          Thanks for reaching out, {form.name || 'friend'}. Our team will get back to you shortly.
         </p>
         <Button variant="outline" onClick={() => { setForm(initialState); setSubmitted(false) }}>
           Send Another Message
@@ -55,9 +54,6 @@ export default function ContactForm() {
       <Button type="submit" size="lg" className="w-full sm:w-auto sm:self-start">
         Send Message
       </Button>
-      <p className="text-xs text-charcoal-400 dark:text-cream-100/40">
-        This is a portfolio demo — messages are not sent anywhere.
-      </p>
     </form>
   )
 }
