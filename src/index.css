@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-stone-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-200 text-charcoal font-body antialiased transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-charcoal-900 text-cream-200;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-gold-200 text-charcoal-900;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold-400 ring-offset-2 ring-offset-cream-200;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-8xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs sm:text-sm font-semibold uppercase tracking-widest2 text-gold-500 dark:text-gold-300;
+  }
+
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl leading-[1.05];
+  }
+
+  .heading-lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl leading-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl sm:text-3xl leading-snug;
+  }
+
+  .body-text {
+    @apply text-base sm:text-lg leading-relaxed text-charcoal-600 dark:text-cream-100/80;
+  }
+
+  .glass-panel {
+    @apply bg-white/60 dark:bg-charcoal-800/50 backdrop-blur-md border border-white/40 dark:border-white/10;
+  }
+
+  .card-surface {
+    @apply bg-white dark:bg-charcoal-800 border border-stone-200 dark:border-white/10 rounded-2xl shadow-soft;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .bg-noise {
+    background-image: radial-gradient(rgba(42, 38, 32, 0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-cream-200 dark:bg-charcoal-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-stone-300 dark:bg-charcoal-600 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gold-400;
+}
