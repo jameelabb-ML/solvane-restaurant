@@ -236,7 +236,7 @@ export const tastingMenu = {
   price: 145,
   winePairingPrice: 85,
   description:
-    'A seven-course journey through the season, guided nightly by Chef Freja Lindholm. Vegetarian and pescatarian versions available with advance notice.',
+    'A seven-course journey through the season, guided nightly by Chef Magnus Lindholm. Vegetarian and pescatarian versions available with advance notice.',
 }
 
 export default menuItems

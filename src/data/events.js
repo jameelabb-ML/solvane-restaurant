@@ -40,7 +40,7 @@ export const eventFaqs = [
   {
     question: 'Can the menu be customized?',
     answer:
-      'Yes. Our events team works with you and Chef Freja to design a bespoke menu, accommodating dietary restrictions and preferences.',
+      'Yes. Our events team works with you and Chef Magnus to design a bespoke menu, accommodating dietary restrictions and preferences.',
   },
   {
     question: 'Is there a minimum spend?',
