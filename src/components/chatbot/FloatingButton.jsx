@@ -46,7 +46,7 @@ export default function FloatingButton({ onClick, visible }) {
         onHoverEnd={() => setHovering(false)}
         onFocus={() => setHovering(true)}
         onBlur={() => setHovering(false)}
-        className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-gold-200 bg-gradient-to-br from-white to-gold-50 text-gold-600 shadow-lift transition-shadow duration-300 hover:shadow-[0_24px_48px_-12px_rgba(176,141,83,0.45)] dark:border-white/10 dark:from-charcoal-800 dark:to-charcoal-800 dark:text-gold-300"
+        className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-gold-200 bg-gradient-to-br from-white to-gold-50 text-gold-600 shadow-lift transition-shadow duration-300 hover:shadow-[0_24px_48px_-12px_rgba(176,141,83,0.45)]"
       >
         <ChatIcon size={27} />
 
