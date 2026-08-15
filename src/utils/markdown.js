@@ -44,7 +44,7 @@ function parseInline(text, keyPrefix) {
             href: match[6],
             target: '_blank',
             rel: 'noreferrer',
-            className: 'text-gold-600 underline underline-offset-2 dark:text-gold-300',
+            className: 'text-charcoal-900 underline underline-offset-2',
           },
           match[5]
         )

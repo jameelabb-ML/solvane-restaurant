@@ -75,12 +75,12 @@ export default function ChatMessage({ message, onRetry, onQuickReply, onNavigate
             className={`rounded-2xl px-4 py-3 text-[0.9rem] leading-relaxed shadow-soft ${
               isUser
                 ? 'rounded-br-md bg-charcoal-800 text-cream-100'
-                : 'rounded-bl-md bg-stone-50 text-charcoal dark:bg-charcoal-800 dark:text-cream-100'
+                : 'rounded-bl-md bg-gold-200 text-charcoal-900 dark:bg-gold-400 dark:text-charcoal-900'
             }`}
           >
             {isUser ? message.text : renderMarkdown(message.text)}
             {isStreaming && (
-              <span className="ml-0.5 inline-block h-3.5 w-[2px] translate-y-0.5 animate-pulse bg-gold-400 align-middle" />
+              <span className="ml-0.5 inline-block h-3.5 w-[2px] translate-y-0.5 animate-pulse bg-charcoal-900 align-middle" />
             )}
           </div>
         )}
