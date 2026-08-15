@@ -46,7 +46,7 @@ export default function FloatingButton({ onClick, visible }) {
         onHoverEnd={() => setHovering(false)}
         onFocus={() => setHovering(true)}
         onBlur={() => setHovering(false)}
-        className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-gold-200 bg-gradient-to-br from-white to-gold-50 text-gold-600 shadow-lift transition-shadow duration-300 hover:shadow-[0_24px_48px_-12px_rgba(176,141,83,0.45)]"
+        className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-gold-200 bg-gradient-to-br from-white to-gold-50 text-charcoal-800 shadow-lift transition-shadow duration-300 hover:shadow-[0_24px_48px_-12px_rgba(176,141,83,0.45)] dark:text-gold-600"
       >
         <ChatIcon size={27} />
 
@@ -57,7 +57,7 @@ export default function FloatingButton({ onClick, visible }) {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 8, scale: 0.95 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-full bg-charcoal px-3.5 py-2 text-xs font-medium text-cream-100 shadow-soft sm:block dark:bg-cream-100 dark:text-charcoal-900"
+              className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-gold-300 bg-gold-100 px-3.5 py-2 text-xs font-medium text-charcoal-900 shadow-soft sm:block"
             >
               Spør oss gjerne
             </motion.span>

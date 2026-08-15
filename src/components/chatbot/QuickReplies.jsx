@@ -15,7 +15,7 @@ export default function QuickReplies({ options, onSelect, disabled }) {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.05, duration: 0.25 }}
-          className="flex items-center gap-1.5 rounded-full border border-gold-300 bg-gold-50 px-4 py-2 text-sm font-medium text-charcoal-700 shadow-soft transition-colors hover:bg-gold-100 disabled:pointer-events-none disabled:opacity-50"
+          className="flex items-center gap-1.5 rounded-full border border-gold-300 bg-gold-50 px-4 py-2 text-sm font-medium text-charcoal-700 shadow-soft transition-colors hover:bg-gold-100 disabled:pointer-events-none disabled:opacity-50 dark:bg-gold-200 dark:hover:bg-gold-300"
         >
           <Clock size={13} className="text-gold-500" />
           {option}
