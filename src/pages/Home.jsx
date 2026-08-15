@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Modern Nordic Fine Dining in Portland"
-        description="Solvane is a modern Nordic fine-dining restaurant in Portland's Pearl District, celebrating seasonal ingredients and warm Scandinavian hospitality."
+        title="Moderne nordisk fine dining i Oslo"
+        description="Solvane er en moderne nordisk fine dining-restaurant på Frogner i Oslo, med sesongens råvarer og varm skandinavisk gjestfrihet."
       />
       <Hero />
       <FeaturedDishes />

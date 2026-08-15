@@ -6,15 +6,23 @@ import { assistantIdentity } from '../config/restaurantContext.js'
 let idCounter = 0
 const nextId = () => `msg-${Date.now()}-${idCounter++}`
 
-// Reservation-type messages carry structured data instead of free text, so when
-// they're sent back to the model as conversation history, summarize them —
-// otherwise the model loses track of what it already booked.
-const summarizeReservation = (r) =>
-  `Reservation confirmed: ${r.name}, ${r.guests} guest${r.guests === 1 ? '' : 's'}, ${r.date} at ${r.time}${
-    r.email ? `, email ${r.email}` : ''
-  }${r.phone ? `, phone ${r.phone}` : ''}${r.specialRequests ? `. Notes: ${r.specialRequests}` : ''}.`
+// Structured message types (quick replies, reservation summaries) carry data
+// instead of free text, so when they're sent back to the model as conversation
+// history, summarize them in plain text — otherwise the model loses context.
+const summarizeForApi = (m) => {
+  if (m.type === 'reservationSummary') {
+    const r = m.reservation
+    return `Oppsummering vist til gjesten: ${r.guests} gjester, ${r.date} kl. ${r.time}${
+      r.name ? `, navn: ${r.name}` : ''
+    }. Gjesten er bedt om å fullføre bestillingen på reservasjonssiden.`
+  }
+  if (m.type === 'quickReplies') {
+    return `Tilbød gjesten disse tidspunktene: ${m.quickReplies.join(', ')}.`
+  }
+  return m.text
+}
 
-const toApiText = (m) => (m.type === 'reservation' ? summarizeReservation(m.reservation) : m.text)
+const toApiText = (m) => summarizeForApi(m)
 
 export function useChat() {
   const [messages, setMessages] = useState(() => loadChatHistory())
@@ -50,12 +58,20 @@ export function useChat() {
         },
       })
 
-      if (result.functionCall?.name === 'submit_reservation') {
-        const reservation = result.functionCall.args
+      const call = result.functionCall
+      if (call?.name === 'offer_time_slots' && Array.isArray(call.args?.times)) {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantMessageId
-              ? { ...m, status: 'done', type: 'reservation', reservation, text: '' }
+              ? { ...m, status: 'done', type: 'quickReplies', quickReplies: call.args.times, text: '' }
+              : m
+          )
+        )
+      } else if (call?.name === 'summarize_reservation') {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantMessageId
+              ? { ...m, status: 'done', type: 'reservationSummary', reservation: call.args, text: '' }
               : m
           )
         )

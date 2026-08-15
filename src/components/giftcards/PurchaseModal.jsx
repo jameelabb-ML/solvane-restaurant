@@ -31,21 +31,21 @@ export default function PurchaseModal({ option, onClose }) {
             <CheckCircle2 size={26} />
           </span>
           <div>
-            <h3 className="heading-md text-charcoal dark:text-cream-100">Gift Card Purchased</h3>
+            <h3 className="heading-md text-charcoal dark:text-cream-100">Gavekort kjøpt</h3>
             <p className="mt-2 text-sm leading-relaxed text-charcoal-600 dark:text-cream-100/70">
-              {option?.custom ? 'Your custom gift card' : `Your $${option?.amount} gift card`} is on its way.
+              {option?.custom ? 'Det tilpassede gavekortet ditt' : `Gavekortet ditt på ${option?.amount} kr`} er på vei.
             </p>
           </div>
           <div className="flex w-full items-center justify-between rounded-xl bg-stone-100 px-4 py-3 text-sm dark:bg-white/5">
-            <span className="text-charcoal-500 dark:text-cream-100/60">Order Number</span>
+            <span className="text-charcoal-500 dark:text-cream-100/60">Ordrenummer</span>
             <span className="font-medium text-charcoal dark:text-cream-100">{orderCode}</span>
           </div>
           <div className="flex items-start gap-2 text-left text-xs text-charcoal-500 dark:text-cream-100/50">
             <Mail size={14} className="mt-0.5 shrink-0 text-gold-500" />
-            <span>A confirmation and delivery details have been sent to your email.</span>
+            <span>En bekreftelse og leveringsdetaljer er sendt til e-posten din.</span>
           </div>
           <Button onClick={onClose} className="w-full">
-            Done
+            Ferdig
           </Button>
         </motion.div>
       </Modal>
@@ -60,7 +60,7 @@ export default function PurchaseModal({ option, onClose }) {
         </span>
         <div>
           <h3 className="heading-md text-charcoal dark:text-cream-100">
-            {option?.custom ? 'Custom Gift Card' : `$${option?.amount} Gift Card`}
+            {option?.custom ? 'Tilpasset gavekort' : `Gavekort på ${option?.amount} kr`}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-charcoal-600 dark:text-cream-100/70">
             {option?.description}
@@ -68,10 +68,10 @@ export default function PurchaseModal({ option, onClose }) {
         </div>
         <div className="flex items-start gap-2 rounded-xl bg-stone-100 p-4 text-left text-xs text-charcoal-500 dark:bg-white/5 dark:text-cream-100/60">
           <ShieldCheck size={16} className="mt-0.5 shrink-0 text-gold-500" />
-          <p>Your gift card details are protected with secure, encrypted checkout.</p>
+          <p>Gavekortopplysningene dine er beskyttet med sikker, kryptert betaling.</p>
         </div>
         <Button onClick={handlePurchase} className="w-full">
-          Complete Purchase
+          Fullfør kjøp
         </Button>
       </div>
     </Modal>

@@ -12,12 +12,12 @@ export default function About() {
   return (
     <>
       <Seo
-        title="About"
-        description="The story, mission and sustainability values behind Solvane — modern Nordic fine dining in Portland."
+        title="Om oss"
+        description="Historien, oppdraget og bærekraftsverdiene bak Solvane — moderne nordisk fine dining i Oslo."
       />
 
       <section className="relative flex h-[50vh] min-h-[380px] items-center justify-center overflow-hidden">
-        <img src={img.interiorWide} alt="Solvane dining room" className="absolute inset-0 h-full w-full object-cover" loading="eager" />
+        <img src={img.interiorWide} alt="Solvanes spisesal" className="absolute inset-0 h-full w-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/85 via-charcoal-900/40 to-charcoal-900/10" />
         <div className="container-page relative z-10 flex flex-col items-center gap-4 text-center">
           <span className="eyebrow">{restaurant.story.eyebrow}</span>
@@ -33,7 +33,7 @@ export default function About() {
             ))}
           </FadeIn>
           <FadeIn delay={0.1}>
-            <OptimizedImage src={img.aboutHearth} alt="The open hearth kitchen at Solvane" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
+            <OptimizedImage src={img.aboutHearth} alt="Det åpne ildstedskjøkkenet hos Solvane" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
           </FadeIn>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function About() {
       <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
         <div className="container-page grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <FadeIn>
-            <OptimizedImage src={img.aboutIngredients} alt="Fresh regional ingredients" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
+            <OptimizedImage src={img.aboutIngredients} alt="Ferske lokale råvarer" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
           </FadeIn>
           <FadeIn delay={0.1} className="flex flex-col gap-5">
             <span className="eyebrow">{restaurant.sustainability.eyebrow}</span>
@@ -80,7 +80,7 @@ export default function About() {
 
       <section className="section-padding bg-stone-100 dark:bg-charcoal-800">
         <div className="container-page">
-          <SectionHeading eyebrow="Our Journey" title="A decade in the making" />
+          <SectionHeading eyebrow="Vår reise" title="Et tiår i vekst" />
           <div className="mx-auto mt-14 max-w-2xl">
             <Timeline items={restaurant.timeline} />
           </div>
@@ -90,10 +90,10 @@ export default function About() {
       <section className="section-padding bg-charcoal-900">
         <div className="container-page flex flex-col items-center gap-6 text-center">
           <h2 className="heading-md max-w-lg text-cream-100 text-balance">
-            Come taste the story for yourself
+            Kom og smak på historien selv
           </h2>
           <Button to="/reservations" variant="gold" size="lg">
-            Reserve a Table
+            Reserver bord
           </Button>
         </div>
       </section>

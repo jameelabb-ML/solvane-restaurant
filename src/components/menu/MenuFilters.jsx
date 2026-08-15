@@ -2,10 +2,10 @@ import { Search, X } from 'lucide-react'
 import { categories } from '../../data/menu.js'
 
 const DIETARY_FILTERS = [
-  { id: 'vegetarian', label: 'Vegetarian' },
-  { id: 'vegan', label: 'Vegan' },
-  { id: 'gluten-free', label: 'Gluten-Free' },
-  { id: 'pescatarian', label: 'Pescatarian' },
+  { id: 'vegetarian', label: 'Vegetar' },
+  { id: 'vegan', label: 'Vegansk' },
+  { id: 'gluten-free', label: 'Glutenfri' },
+  { id: 'pescatarian', label: 'Pescetariansk' },
 ]
 
 export default function MenuFilters({
@@ -25,14 +25,14 @@ export default function MenuFilters({
           type="text"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          placeholder="Search the menu..."
+          placeholder="Søk i menyen..."
           className="w-full rounded-full border border-stone-300 bg-white py-3 pl-11 pr-10 text-sm text-charcoal outline-none transition-colors focus:border-gold-400 dark:border-white/15 dark:bg-charcoal-800 dark:text-cream-100"
         />
         {search && (
           <button
             type="button"
             onClick={() => onSearchChange('')}
-            aria-label="Clear search"
+            aria-label="Fjern søk"
             className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-charcoal"
           >
             <X size={14} />
@@ -50,7 +50,7 @@ export default function MenuFilters({
               : 'bg-stone-100 text-charcoal-600 hover:bg-stone-200 dark:bg-white/10 dark:text-cream-100/70'
           }`}
         >
-          All Courses
+          Alle retter
         </button>
         {categories.map((cat) => (
           <button
@@ -70,7 +70,7 @@ export default function MenuFilters({
 
       <div className="flex flex-wrap items-center justify-center gap-2 border-t border-stone-200 pt-5 dark:border-white/10">
         <span className="mr-1 text-xs font-medium uppercase tracking-widest2 text-charcoal-400 dark:text-cream-100/40">
-          Dietary
+          Kosthold
         </span>
         {DIETARY_FILTERS.map((f) => (
           <button
@@ -92,7 +92,7 @@ export default function MenuFilters({
             onClick={onClear}
             className="ml-2 text-xs font-medium text-charcoal-400 underline-offset-2 hover:text-gold-500 hover:underline dark:text-cream-100/50"
           >
-            Clear filters
+            Fjern filtre
           </button>
         )}
       </div>

@@ -15,13 +15,13 @@ export default function GiftCardOption({ option, index = 0, onSelect, selected =
     >
       {option.popular && !selected && (
         <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-1 rounded-full bg-gold-400 px-2.5 py-1 text-[11px] font-semibold text-charcoal-900 shadow-soft">
-          <Sparkles size={11} /> Most Popular
+          <Sparkles size={11} /> Mest populær
         </span>
       )}
 
       {selected && (
         <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-1 rounded-full bg-charcoal-900 px-2.5 py-1 text-[11px] font-semibold text-gold-300 shadow-soft dark:bg-gold-400 dark:text-charcoal-900">
-          <Check size={11} /> Selected
+          <Check size={11} /> Valgt
         </span>
       )}
 
@@ -39,16 +39,16 @@ export default function GiftCardOption({ option, index = 0, onSelect, selected =
         </div>
         <div className="relative">
           <p className="font-display text-3xl text-gold-300">
-            {option.custom ? 'Custom Amount' : `$${option.amount}`}
+            {option.custom ? 'Valgfritt beløp' : `${option.amount} kr`}
           </p>
-          <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Gift Card</p>
+          <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Gavekort</p>
         </div>
       </div>
 
       <p className="text-sm leading-relaxed text-charcoal-600 dark:text-cream-100/70">{option.description}</p>
 
       <Button onClick={() => onSelect?.(option)} variant={option.popular ? 'gold' : 'outline'} className="mt-auto">
-        {option.custom ? 'Choose Amount' : 'Select This Card'}
+        {option.custom ? 'Velg beløp' : 'Velg dette kortet'}
       </Button>
     </motion.div>
   )

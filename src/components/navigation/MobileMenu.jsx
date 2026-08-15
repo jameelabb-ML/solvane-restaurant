@@ -34,7 +34,7 @@ export default function MobileMenu({ open, onClose }) {
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close menu"
+            aria-label="Lukk meny"
             className="rounded-full p-2 text-charcoal dark:text-cream-100 hover:bg-charcoal/5 dark:hover:bg-white/10"
           >
             <X size={20} />
@@ -66,7 +66,7 @@ export default function MobileMenu({ open, onClose }) {
 
         <div className="flex flex-col gap-3 px-5 pb-8 pt-4">
           <Button to="/reservations" onClick={onClose} size="sm" className="w-full">
-            Reserve a Table
+            Reserver bord
           </Button>
           <a
             href={restaurant.contact.phoneHref}

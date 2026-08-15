@@ -12,14 +12,14 @@ export default function Gallery() {
 
   return (
     <>
-      <Seo title="Gallery" description="A visual tour of Solvane — dining room, dishes, team and private events." />
+      <Seo title="Galleri" description="En visuell rundtur hos Solvane — spisesal, retter, team og private arrangementer." />
 
       <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Gallery"
-            title="A visual tour of Solvane"
-            description="From the open hearth kitchen to the last course of the evening — a look inside our world."
+            eyebrow="Galleri"
+            title="En visuell rundtur hos Solvane"
+            description="Fra det åpne ildstedskjøkkenet til kveldens siste rett — et innblikk i vår verden."
           />
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2">

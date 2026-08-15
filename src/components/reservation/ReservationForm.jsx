@@ -4,7 +4,7 @@ import { Users, Calendar, Clock, MessageSquare, User, Mail, Phone } from 'lucide
 import Button from '../ui/Button.jsx'
 import ReservationConfirmation from './ReservationConfirmation.jsx'
 
-const TIME_SLOTS = ['5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM']
+const TIME_SLOTS = ['17.00', '17.30', '18.00', '18.30', '19.00', '19.30', '20.00', '20.30', '21.00']
 const GUEST_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8]
 
 const initialState = {
@@ -29,10 +29,10 @@ export default function ReservationForm() {
 
   const validate = () => {
     const next = {}
-    if (!form.name.trim()) next.name = 'Name is required'
-    if (!form.email.trim()) next.email = 'Email is required'
-    if (!form.date) next.date = 'Please select a date'
-    if (!form.time) next.time = 'Please select a time'
+    if (!form.name.trim()) next.name = 'Navn er påkrevd'
+    if (!form.email.trim()) next.email = 'E-post er påkrevd'
+    if (!form.date) next.date = 'Velg en dato'
+    if (!form.time) next.time = 'Velg et tidspunkt'
     setErrors(next)
     return Object.keys(next).length === 0
   }
@@ -64,38 +64,38 @@ export default function ReservationForm() {
           noValidate
         >
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <Field label="Full Name" icon={User} error={errors.name}>
+              <Field label="Fullt navn" icon={User} error={errors.name}>
                 <input
                   type="text"
                   value={form.name}
                   onChange={update('name')}
-                  placeholder="Jane Doe"
+                  placeholder="Kari Nordmann"
                   className={inputClasses(errors.name)}
                 />
               </Field>
-              <Field label="Email" icon={Mail} error={errors.email}>
+              <Field label="E-post" icon={Mail} error={errors.email}>
                 <input
                   type="email"
                   value={form.email}
                   onChange={update('email')}
-                  placeholder="jane@email.com"
+                  placeholder="kari@epost.no"
                   className={inputClasses(errors.email)}
                 />
               </Field>
             </div>
 
-            <Field label="Phone (optional)" icon={Phone}>
+            <Field label="Telefon (valgfritt)" icon={Phone}>
               <input
                 type="tel"
                 value={form.phone}
                 onChange={update('phone')}
-                placeholder="(503) 555-0100"
+                placeholder="912 34 567"
                 className={inputClasses()}
               />
             </Field>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <Field label="Date" icon={Calendar} error={errors.date}>
+              <Field label="Dato" icon={Calendar} error={errors.date}>
                 <input
                   type="date"
                   min={today}
@@ -105,19 +105,19 @@ export default function ReservationForm() {
                 />
               </Field>
 
-              <Field label="Guests" icon={Users}>
+              <Field label="Gjester" icon={Users}>
                 <select value={form.guests} onChange={update('guests')} className={inputClasses()}>
                   {GUEST_OPTIONS.map((n) => (
                     <option key={n} value={n}>
-                      {n} {n === 1 ? 'Guest' : 'Guests'}
+                      {n} {n === 1 ? 'gjest' : 'gjester'}
                     </option>
                   ))}
-                  <option value="9+">9+ Guests (Private Dining)</option>
+                  <option value="9+">9+ gjester (privat middag)</option>
                 </select>
               </Field>
             </div>
 
-            <Field label="Time" icon={Clock} error={errors.time}>
+            <Field label="Tidspunkt" icon={Clock} error={errors.time}>
               <div className="flex flex-wrap gap-2">
                 {TIME_SLOTS.map((slot) => (
                   <button
@@ -136,18 +136,18 @@ export default function ReservationForm() {
               </div>
             </Field>
 
-            <Field label="Special Requests (optional)" icon={MessageSquare}>
+            <Field label="Spesielle ønsker (valgfritt)" icon={MessageSquare}>
               <textarea
                 value={form.requests}
                 onChange={update('requests')}
                 rows={4}
-                placeholder="Allergies, celebrations, seating preferences..."
+                placeholder="Allergier, feiringer, bordønsker..."
                 className={`${inputClasses()} resize-none`}
               />
             </Field>
 
             <Button type="submit" size="lg" className="mt-2 w-full sm:w-auto sm:self-start">
-              Request Reservation
+              Send reservasjonsforespørsel
             </Button>
         </motion.form>
       )}

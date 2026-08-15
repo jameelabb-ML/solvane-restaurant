@@ -1,12 +1,12 @@
 import { Leaf, WheatOff, Fish, MilkOff, Sprout } from 'lucide-react'
 
 const DIETARY_META = {
-  vegetarian: { label: 'Vegetarian', icon: Leaf, tone: 'text-olive-600 dark:text-olive-400' },
-  vegan: { label: 'Vegan', icon: Sprout, tone: 'text-olive-600 dark:text-olive-400' },
-  'gluten-free': { label: 'Gluten-Free', icon: WheatOff, tone: 'text-gold-600 dark:text-gold-300' },
-  'gluten-free option': { label: 'Gluten-Free Option', icon: WheatOff, tone: 'text-gold-600 dark:text-gold-300' },
-  pescatarian: { label: 'Pescatarian', icon: Fish, tone: 'text-sky-600 dark:text-sky-300' },
-  'dairy-free': { label: 'Dairy-Free', icon: MilkOff, tone: 'text-charcoal-400' },
+  vegetarian: { label: 'Vegetar', icon: Leaf, tone: 'text-olive-600 dark:text-olive-400' },
+  vegan: { label: 'Vegansk', icon: Sprout, tone: 'text-olive-600 dark:text-olive-400' },
+  'gluten-free': { label: 'Glutenfri', icon: WheatOff, tone: 'text-gold-600 dark:text-gold-300' },
+  'gluten-free option': { label: 'Glutenfritt alternativ', icon: WheatOff, tone: 'text-gold-600 dark:text-gold-300' },
+  pescatarian: { label: 'Pescetariansk', icon: Fish, tone: 'text-sky-600 dark:text-sky-300' },
+  'dairy-free': { label: 'Melkefri', icon: MilkOff, tone: 'text-charcoal-400' },
 }
 
 export function DietaryBadge({ tag }) {
@@ -26,10 +26,10 @@ export function DietaryBadge({ tag }) {
 
 export const ALLERGEN_LABELS = {
   gluten: 'Gluten',
-  dairy: 'Dairy',
-  nuts: 'Tree Nuts',
-  shellfish: 'Shellfish',
-  fish: 'Fish',
+  dairy: 'Melk',
+  nuts: 'Nøtter',
+  shellfish: 'Skalldyr',
+  fish: 'Fisk',
   egg: 'Egg',
 }
 

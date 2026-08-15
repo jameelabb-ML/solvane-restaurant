@@ -10,9 +10,9 @@ export default function Philosophy() {
     <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Our Philosophy"
-          title="Four principles guide every plate"
-          description="Solvane is built on a simple idea: let the ingredient speak, and treat the guest like family."
+          eyebrow="Vår filosofi"
+          title="Fire prinsipper leder hver tallerken"
+          description="Solvane er bygget på en enkel idé: la råvaren tale for seg selv, og behandle gjesten som familie."
         />
 
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

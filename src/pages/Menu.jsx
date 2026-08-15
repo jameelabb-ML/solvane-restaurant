@@ -39,17 +39,17 @@ export default function Menu() {
   return (
     <>
       <Seo
-        title="Menu"
-        description="Explore Solvane's seasonal Nordic menu — starters, mains, desserts and our seven-course tasting menu."
+        title="Meny"
+        description="Utforsk Solvanes nordiske sesongmeny — forretter, hovedretter, desserter og vår smaksmeny på syv retter."
       />
 
       <section className="relative flex h-[46vh] min-h-[340px] items-center justify-center overflow-hidden bg-charcoal-900">
         <div className="container-page relative z-10 flex flex-col items-center gap-4 text-center">
-          <span className="eyebrow">The Menu</span>
-          <h1 className="heading-xl text-cream-100 text-balance">Seasonal, Considered, Nordic</h1>
+          <span className="eyebrow">Menyen</span>
+          <h1 className="heading-xl text-cream-100 text-balance">Sesongbasert, gjennomtenkt, nordisk</h1>
           <p className="max-w-xl text-cream-100/75">
-            Our menu shifts with the seasons and the day&apos;s harvest. Every dish is built to be shared, and every
-            ingredient has a story.
+            Menyen vår følger sesongene og dagens råvarer. Hver rett er laget for å deles, og hver ingrediens har en
+            historie.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function Menu() {
 
       <section className="pb-24">
         <div className="container-page">
-          <SectionHeading eyebrow="À La Carte" title="Browse the full menu" />
+          <SectionHeading eyebrow="À la carte" title="Bla gjennom hele menyen" />
 
           <div className="mt-10">
             <MenuFilters
@@ -77,7 +77,7 @@ export default function Menu() {
           </div>
 
           <div className="mt-4 text-center text-xs text-charcoal-400 dark:text-cream-100/40">
-            {filteredItems.length} {filteredItems.length === 1 ? 'dish' : 'dishes'}
+            {filteredItems.length} {filteredItems.length === 1 ? 'rett' : 'retter'}
           </div>
 
           {filteredItems.length > 0 ? (
@@ -101,7 +101,7 @@ export default function Menu() {
             >
               <SearchX size={28} className="text-charcoal-300 dark:text-cream-100/30" />
               <p className="text-charcoal-500 dark:text-cream-100/60">
-                No dishes match your filters. Try clearing a few.
+                Ingen retter matcher filtrene dine. Prøv å fjerne noen.
               </p>
             </motion.div>
           )}

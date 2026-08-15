@@ -15,7 +15,7 @@ export default function Hero() {
       >
         <img
           src={img.heroInterior}
-          alt="Solvane dining room bathed in warm evening light"
+          alt="Solvanes spisesal badet i varmt kveldslys"
           className="h-full w-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -67,10 +67,10 @@ export default function Hero() {
           className="mt-4 flex flex-col gap-4 sm:flex-row"
         >
           <Button to="/reservations" variant="gold" size="lg">
-            Reserve a Table
+            Reserver bord
           </Button>
           <Button to="/menu" variant="outline" size="lg" className="border-cream-100/40 text-cream-100 hover:bg-white/10">
-            View Menu
+            Se meny
           </Button>
         </motion.div>
       </div>

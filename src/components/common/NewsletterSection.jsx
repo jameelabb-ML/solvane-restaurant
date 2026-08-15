@@ -6,12 +6,12 @@ export default function NewsletterSection() {
     <section className="section-padding bg-gold-50 dark:bg-charcoal-800">
       <div className="container-page flex flex-col items-center gap-6 text-center">
         <FadeIn className="flex flex-col items-center gap-4">
-          <span className="eyebrow">Stay in Touch</span>
+          <span className="eyebrow">Hold deg oppdatert</span>
           <h2 className="heading-md max-w-xl text-charcoal dark:text-cream-100 text-balance">
-            Seasonal menus, private tastings, and a table when we have one
+            Sesongmenyer, private smakinger, og et bord når vi har ett ledig
           </h2>
           <p className="max-w-md text-sm sm:text-base text-charcoal-600 dark:text-cream-100/70">
-            Join our list for quiet invitations to new tasting menus and seasonal events. No noise, just the good stuff.
+            Meld deg på listen vår for stillferdige invitasjoner til nye smaksmenyer og sesongarrangementer. Ikke noe mas, bare det gode.
           </p>
         </FadeIn>
         <Newsletter />

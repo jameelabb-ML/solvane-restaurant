@@ -25,7 +25,7 @@ export default function LoadingScreen() {
         <span className="font-display text-4xl tracking-wide text-charcoal dark:text-cream-100">
           Solvane
         </span>
-        <span className="eyebrow">Modern Nordic Dining</span>
+        <span className="eyebrow">Moderne nordisk mat</span>
       </div>
       <div className="h-px w-24 overflow-hidden bg-stone-200 dark:bg-charcoal-600">
         <div className="h-full w-full animate-shimmer bg-gradient-to-r from-transparent via-gold-400 to-transparent bg-[length:200%_100%]" />

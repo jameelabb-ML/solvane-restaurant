@@ -5,23 +5,23 @@ import Button from '../ui/Button.jsx'
 const items = [
   {
     icon: UtensilsCrossed,
-    title: 'Reserve a Table',
-    description: 'Join us for an evening tasting menu or Sunday brunch.',
-    cta: 'Book Now',
+    title: 'Reserver bord',
+    description: 'Bli med på en kveld med smaksmeny, eller søndagsbrunsj.',
+    cta: 'Bestill nå',
     to: '/reservations',
   },
   {
     icon: Users,
-    title: 'Private Dining',
-    description: 'Corporate dinners, celebrations and full restaurant buyouts.',
-    cta: 'Plan an Event',
+    title: 'Privat middag',
+    description: 'Bedriftsmiddager, feiringer og hele restauranten for dere selv.',
+    cta: 'Planlegg et arrangement',
     to: '/private-events',
   },
   {
     icon: Gift,
-    title: 'Gift Cards',
-    description: 'Share the Solvane experience with someone you love.',
-    cta: 'Give a Gift',
+    title: 'Gavekort',
+    description: 'Del Solvane-opplevelsen med noen du er glad i.',
+    cta: 'Gi en gave',
     to: '/gift-cards',
   },
 ]

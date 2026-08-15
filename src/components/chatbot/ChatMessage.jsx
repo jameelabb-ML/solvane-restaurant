@@ -4,18 +4,21 @@ import { Copy, Check, RefreshCcw, TriangleAlert } from 'lucide-react'
 import { renderMarkdown } from '../../utils/markdown.js'
 import ChatIcon from './ChatIcon.jsx'
 import ReservationCard from './ReservationCard.jsx'
+import QuickReplies from './QuickReplies.jsx'
 
 const formatTime = (timestamp) => {
   if (!timestamp) return ''
-  return new Date(timestamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+  return new Date(timestamp).toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit' })
 }
 
-export default function ChatMessage({ message, onRetry }) {
+export default function ChatMessage({ message, onRetry, onQuickReply, onNavigate, disabled }) {
   const [copied, setCopied] = useState(false)
   const isUser = message.role === 'user'
   const isError = message.status === 'error'
   const isStreaming = message.status === 'streaming'
-  const isReservation = message.type === 'reservation'
+  const isReservation = message.type === 'reservationSummary'
+  const isQuickReplies = message.type === 'quickReplies'
+  const isStructured = isReservation || isQuickReplies
 
   const handleCopy = async () => {
     try {
@@ -34,20 +37,20 @@ export default function ChatMessage({ message, onRetry }) {
           <TriangleAlert size={13} />
         </div>
         <div className="flex max-w-[85%] flex-col gap-2 rounded-2xl rounded-bl-md border border-red-100 bg-red-50/70 px-4 py-3 text-sm text-red-700 dark:border-red-500/20 dark:bg-red-500/10 dark:text-red-300">
-          <span>{message.errorMessage || 'Something went wrong.'}</span>
+          <span>{message.errorMessage || 'Noe gikk galt.'}</span>
           <button
             type="button"
             onClick={onRetry}
             className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-red-600 shadow-soft transition-colors hover:bg-red-50 dark:bg-charcoal-800 dark:text-red-300"
           >
-            <RefreshCcw size={12} /> Retry
+            <RefreshCcw size={12} /> Prøv igjen
           </button>
         </div>
       </div>
     )
   }
 
-  if (!message.text && !isReservation && isStreaming) return null
+  if (!message.text && !isStructured && isStreaming) return null
 
   return (
     <motion.div
@@ -64,7 +67,9 @@ export default function ChatMessage({ message, onRetry }) {
 
       <div className={`flex max-w-[82%] flex-col gap-1 ${isUser ? 'items-end' : 'items-start'}`}>
         {isReservation ? (
-          <ReservationCard data={message.reservation} />
+          <ReservationCard data={message.reservation} onNavigate={onNavigate} />
+        ) : isQuickReplies ? (
+          <QuickReplies options={message.quickReplies} onSelect={onQuickReply} disabled={disabled} />
         ) : (
           <div
             className={`rounded-2xl px-4 py-3 text-[0.9rem] leading-relaxed shadow-soft ${
@@ -84,11 +89,11 @@ export default function ChatMessage({ message, onRetry }) {
           <span className="text-[11px] text-charcoal-300 dark:text-cream-100/30">
             {formatTime(message.timestamp)}
           </span>
-          {!isUser && !isReservation && message.status === 'done' && message.text && (
+          {!isUser && !isStructured && message.status === 'done' && message.text && (
             <button
               type="button"
               onClick={handleCopy}
-              aria-label="Copy message"
+              aria-label="Kopier melding"
               className="text-charcoal-300 transition-colors hover:text-gold-500 dark:text-cream-100/30 dark:hover:text-gold-300"
             >
               {copied ? <Check size={12} /> : <Copy size={12} />}

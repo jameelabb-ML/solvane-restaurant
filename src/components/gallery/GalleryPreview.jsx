@@ -10,9 +10,9 @@ export default function GalleryPreview() {
     <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Gallery"
-          title="A quiet room, thoughtfully lit"
-          description="A glimpse inside Solvane — our dining room, our dishes, and the hands that make them."
+          eyebrow="Galleri"
+          title="Et stille rom, gjennomtenkt belyst"
+          description="Et innblikk i Solvane — spisesalen vår, rettene våre, og hendene som lager dem."
         />
 
         <div className="mt-14">
@@ -21,7 +21,7 @@ export default function GalleryPreview() {
 
         <div className="mt-4 flex justify-center">
           <Button to="/gallery" variant="outline" size="lg">
-            View Full Gallery
+            Se hele galleriet
           </Button>
         </div>
       </div>

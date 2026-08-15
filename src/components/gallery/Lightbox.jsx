@@ -32,7 +32,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
       <button
         type="button"
         onClick={onClose}
-        aria-label="Close gallery"
+        aria-label="Lukk galleri"
         className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2.5 text-cream-100 transition-colors hover:bg-white/20 sm:right-8 sm:top-8"
       >
         <X size={20} />
@@ -41,7 +41,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
       <button
         type="button"
         onClick={() => onNavigate(-1)}
-        aria-label="Previous image"
+        aria-label="Forrige bilde"
         className="absolute left-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-cream-100 transition-colors hover:bg-white/20 sm:left-6"
       >
         <ChevronLeft size={20} />
@@ -67,7 +67,7 @@ export default function Lightbox({ images, index, onClose, onNavigate }) {
       <button
         type="button"
         onClick={() => onNavigate(1)}
-        aria-label="Next image"
+        aria-label="Neste bilde"
         className="absolute right-2 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-cream-100 transition-colors hover:bg-white/20 sm:right-6"
       >
         <ChevronRight size={20} />

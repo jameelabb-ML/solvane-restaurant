@@ -15,9 +15,9 @@ export default function LocationSection() {
     <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
       <div className="container-page grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
         <FadeIn className="flex flex-col justify-center gap-6">
-          <span className="eyebrow">Find Us</span>
+          <span className="eyebrow">Finn oss</span>
           <h2 className="heading-lg text-charcoal dark:text-cream-100 text-balance">
-            In the heart of the Pearl District
+            I hjertet av Frogner
           </h2>
 
           <div className="flex items-start gap-3">
@@ -43,7 +43,7 @@ export default function LocationSection() {
 
           <div className="mt-2">
             <Button href={mapsUrl} target="_blank" rel="noreferrer" variant="outline">
-              <Navigation size={16} /> Get Directions
+              <Navigation size={16} /> Få veibeskrivelse
             </Button>
           </div>
         </FadeIn>
@@ -53,7 +53,7 @@ export default function LocationSection() {
           className="relative min-h-[340px] overflow-hidden rounded-3xl border border-stone-200 shadow-soft dark:border-white/10"
         >
           <iframe
-            title={`Map showing ${restaurant.name}'s location`}
+            title={`Kart som viser hvor ${restaurant.name} ligger`}
             src={mapEmbedUrl}
             className="h-full min-h-[340px] w-full grayscale-[15%] contrast-[1.05] sepia-[8%]"
             style={{ border: 0 }}

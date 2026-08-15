@@ -25,7 +25,7 @@ export default function Modal({ open, onClose, children, className = '' }) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close dialog"
+          aria-label="Lukk dialogboks"
           className="absolute right-4 top-4 z-10 rounded-full bg-white/80 dark:bg-charcoal-700/80 p-2 text-charcoal dark:text-cream-100 shadow-soft transition hover:bg-white dark:hover:bg-charcoal-700"
         >
           <X size={18} />

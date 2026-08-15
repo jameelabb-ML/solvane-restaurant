@@ -3,54 +3,54 @@ import img from '../utils/images.js'
 export const eventTypes = [
   {
     id: 'private-dining',
-    title: 'Private Dining',
-    description: 'Our glass-enclosed private room seats up to 14 guests for a fully bespoke tasting menu.',
+    title: 'Privat middag',
+    description: 'Vårt glassinnrammede private rom har plass til 14 gjester for en skreddersydd smaksmeny.',
     image: img.privateDining,
-    capacity: 'Up to 14 guests',
+    capacity: 'Inntil 14 gjester',
   },
   {
     id: 'corporate',
-    title: 'Corporate Dinners',
-    description: 'Impress clients and teams with a refined, unhurried dining experience tailored to your evening.',
+    title: 'Bedriftsmiddager',
+    description: 'Imponer kunder og kolleger med en raffinert og avslappet middagsopplevelse tilpasset kvelden deres.',
     image: img.eventSetup,
-    capacity: 'Up to 40 guests (full buyout)',
+    capacity: 'Inntil 40 gjester (hele lokalet)',
   },
   {
     id: 'weddings',
-    title: 'Wedding Receptions',
-    description: 'Intimate wedding dinners and receptions styled around Solvane\'s warm Nordic aesthetic.',
+    title: 'Bryllupsfeiring',
+    description: 'Intime bryllupsmiddager og mottakelser i Solvanes varme, nordiske stil.',
     image: img.weddingSetup,
-    capacity: 'Up to 64 guests (full buyout)',
+    capacity: 'Inntil 64 gjester (hele lokalet)',
   },
   {
     id: 'birthdays',
-    title: 'Birthdays & Celebrations',
-    description: 'Custom set menus, celebration desserts and personal touches for milestone birthdays.',
+    title: 'Bursdager & feiringer',
+    description: 'Skreddersydde menyer, feiringsdesserter og personlige detaljer for store bursdager.',
     image: img.tableCandles,
-    capacity: 'Up to 20 guests',
+    capacity: 'Inntil 20 gjester',
   },
 ]
 
 export const eventFaqs = [
   {
-    question: 'How far in advance should I book a private event?',
+    question: 'Hvor lang tid i forveien bør jeg bestille et privat arrangement?',
     answer:
-      'We recommend booking at least four weeks in advance for private dining and eight weeks for full restaurant buyouts, especially for weekend dates.',
+      'Vi anbefaler minst fire ukers varsel for privat middag, og åtte uker for å leie hele lokalet — spesielt for helgedatoer.',
   },
   {
-    question: 'Can the menu be customized?',
+    question: 'Kan menyen tilpasses?',
     answer:
-      'Yes. Our events team works with you and Chef Magnus to design a bespoke menu, accommodating dietary restrictions and preferences.',
+      'Ja. Arrangementteamet vårt samarbeider med deg og kokk Magnus om en skreddersydd meny, tilpasset allergier og preferanser.',
   },
   {
-    question: 'Is there a minimum spend?',
+    question: 'Er det et minstebeløp?',
     answer:
-      'Minimum spends vary by room, day of week and season. Our events team will share full details after your initial inquiry.',
+      'Minstebeløp varierer etter rom, ukedag og sesong. Arrangementteamet vårt sender fullstendige detaljer etter din første henvendelse.',
   },
   {
-    question: 'Do you offer audio-visual equipment for corporate events?',
+    question: 'Tilbyr dere lyd- og bildeutstyr til bedriftsarrangementer?',
     answer:
-      'Our private dining room includes a discreet screen and sound system suitable for presentations and toasts.',
+      'Det private rommet vårt har en diskré skjerm og lydanlegg som egner seg til presentasjoner og skåltaler.',
   },
 ]
 

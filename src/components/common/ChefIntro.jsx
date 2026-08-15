@@ -35,7 +35,7 @@ export default function ChefIntro() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex flex-col gap-5"
         >
-          <span className="eyebrow">Meet the Chef</span>
+          <span className="eyebrow">Møt kokken</span>
           <h2 className="heading-lg text-charcoal dark:text-cream-100 text-balance">{restaurant.chef.name}</h2>
           <p className="text-sm font-medium uppercase tracking-wide text-gold-600 dark:text-gold-300">
             {restaurant.chef.title}
@@ -54,7 +54,7 @@ export default function ChefIntro() {
 
           <div className="mt-4">
             <Button to="/about" variant="outline">
-              Our Story
+              Vår historie
             </Button>
           </div>
         </motion.div>

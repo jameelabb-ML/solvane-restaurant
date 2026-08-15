@@ -10,7 +10,7 @@ const formatDate = (value) => {
   if (!value) return value
   const parsed = new Date(`${value}T00:00:00`)
   if (Number.isNaN(parsed.getTime())) return value
-  return parsed.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
+  return parsed.toLocaleDateString('nb-NO', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
 }
 
 export default function ReservationConfirmation({ data, onReset }) {
@@ -33,9 +33,9 @@ export default function ReservationConfirmation({ data, onReset }) {
       </motion.span>
 
       <div>
-        <h3 className="heading-md text-charcoal dark:text-cream-100">Reservation Confirmed</h3>
+        <h3 className="heading-md text-charcoal dark:text-cream-100">Reservasjon bekreftet</h3>
         <p className="mt-2 max-w-sm text-sm text-charcoal-600 dark:text-cream-100/70">
-          Thank you, {data.name}. We look forward to welcoming you to Solvane. A confirmation has been sent to{' '}
+          Takk, {data.name}. Vi ser frem til å ønske deg velkommen hos Solvane. En bekreftelse er sendt til{' '}
           {data.email}.
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function ReservationConfirmation({ data, onReset }) {
       <div className="w-full max-w-sm rounded-2xl border border-stone-200 bg-cream-50 text-left dark:border-white/10 dark:bg-charcoal-800">
         <div className="flex items-center justify-between border-b border-stone-200 px-5 py-3 dark:border-white/10">
           <span className="text-xs font-semibold uppercase tracking-widest2 text-charcoal-400 dark:text-cream-100/40">
-            Reservation Details
+            Reservasjonsdetaljer
           </span>
           <span className="text-xs font-medium text-gold-600 dark:text-gold-300">{confirmationCode}</span>
         </div>
@@ -58,13 +58,13 @@ export default function ReservationConfirmation({ data, onReset }) {
             <Clock size={16} className="text-gold-500" /> {data.time}
           </div>
           <div className="flex items-center gap-3 text-sm text-charcoal-600 dark:text-cream-100/80">
-            <Users size={16} className="text-gold-500" /> {data.guests} {Number(data.guests) === 1 ? 'Guest' : 'Guests'}
+            <Users size={16} className="text-gold-500" /> {data.guests} {Number(data.guests) === 1 ? 'gjest' : 'gjester'}
           </div>
         </div>
       </div>
 
       <Button onClick={onReset} variant="outline">
-        Make Another Reservation
+        Lag en ny reservasjon
       </Button>
     </motion.div>
   )

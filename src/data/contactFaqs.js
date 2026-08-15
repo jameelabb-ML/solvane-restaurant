@@ -1,19 +1,19 @@
 export const contactFaqs = [
   {
-    question: 'Do you accommodate dietary restrictions?',
-    answer: 'Yes. Please note any allergies or restrictions when booking and our kitchen will accommodate where possible.',
+    question: 'Tar dere hensyn til allergier og spesialdietter?',
+    answer: 'Ja. Gi oss beskjed om allergier eller restriksjoner ved bestilling, så tilpasser kjøkkenet så godt det lar seg gjøre.',
   },
   {
-    question: 'Is there a dress code?',
-    answer: 'We recommend smart casual attire. There is no strict dress code, but we ask guests to dress for the occasion.',
+    question: 'Er det dresskode?',
+    answer: 'Vi anbefaler pent, avslappet antrekk. Det er ingen streng dresskode, men vi ber gjestene kle seg til anledningen.',
   },
   {
-    question: 'Is parking available?',
-    answer: 'Complimentary valet parking is available Thursday through Sunday. Street parking and a public garage are also nearby.',
+    question: 'Finnes det parkering?',
+    answer: 'Vi tilbyr gratis valetparkering fra torsdag til søndag. Gateparkering og offentlig parkeringshus finnes også i nærheten.',
   },
   {
-    question: 'Can I modify or cancel a reservation?',
-    answer: 'Reservations can be modified or canceled up to 24 hours in advance without charge. Please call us directly for changes.',
+    question: 'Kan jeg endre eller avbestille en reservasjon?',
+    answer: 'Reservasjoner kan endres eller avbestilles kostnadsfritt inntil 24 timer i forveien. Ring oss gjerne direkte for endringer.',
   },
 ]
 

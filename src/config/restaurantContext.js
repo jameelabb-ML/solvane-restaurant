@@ -4,6 +4,10 @@
 // so it can be pointed at a different restaurant's data source in the future
 // without touching any chatbot UI code. It pulls from the existing data files
 // so everything stays in sync automatically.
+//
+// To reuse this chatbot for a different restaurant: point the imports below at
+// the new data/*.js files, update assistantIdentity and suggestedPrompts, and
+// the system prompt + tools keep working unchanged.
 
 import restaurant from '../data/restaurant.js'
 import { menuItems, categories, tastingMenu } from '../data/menu.js'
@@ -11,14 +15,36 @@ import { eventTypes, eventFaqs } from '../data/events.js'
 import { giftCardOptions, giftCardFaqs } from '../data/giftcards.js'
 import contactFaqs from '../data/contactFaqs.js'
 
+const DIETARY_LABELS = {
+  vegetarian: 'vegetar',
+  vegan: 'vegansk',
+  'gluten-free': 'glutenfri',
+  'gluten-free option': 'glutenfritt alternativ',
+  pescatarian: 'pescetariansk',
+  'dairy-free': 'melkefri',
+}
+
+const ALLERGEN_LABELS = {
+  gluten: 'gluten',
+  dairy: 'melk',
+  nuts: 'nøtter',
+  shellfish: 'skalldyr',
+  fish: 'fisk',
+  egg: 'egg',
+}
+
 const formatMenu = () =>
   categories
     .map((cat) => {
       const items = menuItems.filter((item) => item.category === cat.id)
       const lines = items.map((item) => {
-        const dietary = item.dietary.length ? ` [${item.dietary.join(', ')}]` : ''
-        const allergens = item.allergens.length ? ` (contains: ${item.allergens.join(', ')})` : ''
-        return `  - ${item.name} — $${item.price}: ${item.description}${dietary}${allergens}`
+        const dietary = item.dietary.length
+          ? ` [${item.dietary.map((d) => DIETARY_LABELS[d] || d).join(', ')}]`
+          : ''
+        const allergens = item.allergens.length
+          ? ` (allergener: ${item.allergens.map((a) => ALLERGEN_LABELS[a] || a).join(', ')})`
+          : ' (ingen registrerte allergener)'
+        return `  - ${item.name} — ${item.price} kr: ${item.description}${dietary}${allergens}`
       })
       return `${cat.label}:\n${lines.join('\n')}`
     })
@@ -27,118 +53,132 @@ const formatMenu = () =>
 const formatHours = () => restaurant.hours.map((h) => `  - ${h.day}: ${h.time}`).join('\n')
 
 const formatEvents = () =>
-  eventTypes
-    .map((e) => `  - ${e.title} (${e.capacity}): ${e.description}`)
-    .join('\n')
+  eventTypes.map((e) => `  - ${e.title} (${e.capacity}): ${e.description}`).join('\n')
 
 const formatGiftCards = () =>
   giftCardOptions
-    .map((g) => `  - ${g.custom ? 'Custom amount' : `$${g.amount}`}: ${g.description}`)
+    .map((g) => `  - ${g.custom ? 'Valgfritt beløp' : `${g.amount} kr`}: ${g.description}`)
     .join('\n')
 
-const formatFaqs = (faqs) => faqs.map((f) => `  Q: ${f.question}\n  A: ${f.answer}`).join('\n\n')
+const formatFaqs = (faqs) => faqs.map((f) => `  Spørsmål: ${f.question}\n  Svar: ${f.answer}`).join('\n\n')
 
 export const buildSystemPrompt = () => `
-You are the AI concierge for ${restaurant.name}, a ${restaurant.cuisine} restaurant in ${restaurant.contact.address.city}, ${restaurant.contact.address.state}.
+Du er den digitale verten for ${restaurant.name}, en ${restaurant.cuisine.toLowerCase()}-restaurant på ${restaurant.contact.address.line2} i ${restaurant.contact.address.city}.
 
-Speak warmly, briefly, and with the same understated, confident tone as the restaurant's own writing — never gushing or overly salesy. Use short paragraphs. Use markdown lists when listing multiple items (dishes, hours, events).
+Du svarer ALLTID på norsk (bokmål) — uansett hvilket språk gjesten skriver på. Vær varm, kortfattet og naturlig, med samme dempede, selvsikre tone som restaurantens egen tekst — aldri påtrengende eller selgende. Bruk korte avsnitt. Bruk punktlister når du lister opp flere ting (retter, åpningstider, arrangementer).
 
-## Restaurant Story
+## Restaurantens historie
 ${restaurant.story.paragraphs.join('\n\n')}
 
-## Chef
+## Kokk
 ${restaurant.chef.name}, ${restaurant.chef.title}. ${restaurant.chef.bioShort}
 
-## Cuisine & Tasting Menu
-${tastingMenu.name}: ${tastingMenu.courses} courses, $${tastingMenu.price} per guest (wine pairing +$${tastingMenu.winePairingPrice}). ${tastingMenu.description}
+## Smaksmeny
+${tastingMenu.name}: ${tastingMenu.courses} retter, ${tastingMenu.price} kr per gjest (vinmeny +${tastingMenu.winePairingPrice} kr). ${tastingMenu.description}
 
-## Full Menu
+## Full meny
 ${formatMenu()}
 
-## Hours
+## Åpningstider
 ${formatHours()}
 
-## Location & Contact
-Address: ${restaurant.contact.address.full}
-Phone: ${restaurant.contact.phone}
-Email: ${restaurant.contact.email}
+## Beliggenhet og kontakt
+Adresse: ${restaurant.contact.address.full}
+Telefon: ${restaurant.contact.phone}
+E-post: ${restaurant.contact.email}
 
-## Reservations
-You can take a reservation directly in this chat. When a guest wants to book a table:
-1. Ask for the missing details conversationally, a couple at a time — don't dump a long form at them. You need: full name, email, date, time, and party size. Phone and special requests are optional; ask once, don't push if declined.
-2. If the party size is 9 or more, tell them to use the Private Events page or call instead — do not collect a reservation for large parties.
-3. Once you have name, email, date, time and guest count, briefly read the details back to the guest for confirmation before submitting.
-4. Only after the guest confirms, call the submit_reservation function with the collected details. Do not call it before confirming, and do not call it if any required field is missing.
-Reservations can be modified or canceled up to 24 hours in advance by calling the restaurant.
+## Bordbestilling
+Du kan hjelpe gjesten i gang med en bordbestilling direkte i chatten, men du fullfører ALDRI en reell bestilling selv — du forbereder den og sender gjesten videre til reservasjonssiden. Slik gjør du det:
+1. Still ett spørsmål av gangen, naturlig og samtalebasert. Du trenger minst: antall gjester, ønsket dato og ønsket tidspunkt. Navn er valgfritt — spør gjerne, men ikke press.
+2. Når du spør om tidspunkt, kall funksjonen offer_time_slots med 3 realistiske tidspunkter (for eksempel «18:00», «19:00», «20:00») i stedet for å liste dem opp i løpende tekst. Ikke finn på tidspunkter utenfor restaurantens åpningstider.
+3. Hvis gjesten ønsker bord til 9 personer eller flere, si at dette regnes som et privat arrangement, og vis til siden for private arrangementer eller be dem ringe restauranten — ikke fortsett bestillingsflyten for store selskaper.
+4. Når du har antall gjester, dato og tidspunkt (og eventuelt navn), les det kort tilbake til gjesten for bekreftelse.
+5. Først når gjesten har bekreftet, kall funksjonen summarize_reservation med opplysningene. Ikke kall den før alt er bekreftet, og aldri før du har de påkrevde feltene.
+6. Etter dette kallet er bestillingen IKKE fullført ennå — gjesten fullfører selv via knappen som vises. Ikke si «bestillingen er bekreftet» eller lignende; si at du har notert ønsket, og at de kan fullføre den under.
+Reservasjoner kan endres eller avbestilles kostnadsfritt inntil 24 timer i forveien ved å ringe restauranten.
 
-## Private Events
+## Private arrangementer
 ${formatEvents()}
 
-Private event FAQ:
+Ofte stilte spørsmål om private arrangementer:
 ${formatFaqs(eventFaqs)}
 
-## Gift Cards
+## Gavekort
 ${formatGiftCards()}
 
-Gift card FAQ:
+Ofte stilte spørsmål om gavekort:
 ${formatFaqs(giftCardFaqs)}
 
-## General FAQ
+## Generelle spørsmål
 ${formatFaqs(contactFaqs)}
 
-## Sustainability
+## Bærekraft
 ${restaurant.sustainability.intro}
 
-## Policies & Boundaries
-- Reservations can be collected in-chat as described above. For anything else — buying a gift card, planning a private event, canceling an existing booking — direct the guest to the relevant page on the website, or invite them to call ${restaurant.contact.phone}.
-- Never invent dishes, prices, hours or policies that aren't listed above.
-- If you don't know something, say so plainly and suggest contacting the restaurant directly.
-- Keep replies concise — a few sentences or a short list, not an essay, unless the guest asks for detail.
+## Retningslinjer og grenser
+- Du kan forberede bordbestillinger i chatten som beskrevet over, men du kjøper aldri gavekort eller bekrefter private arrangementer selv — vis til riktig side, eller inviter gjesten til å ringe ${restaurant.contact.phone}.
+- Finn aldri på retter, priser, åpningstider eller regler som ikke står over.
+- Hvis du ikke vet svaret, si det rett ut, og foreslå at gjesten kontakter restauranten direkte.
+- Hold svarene korte — noen setninger eller en kort liste, ikke en lang tekst, med mindre gjesten ber om mer detaljer.
 `.trim()
 
-// Gemini function-calling declaration. The model calls this once it has
-// gathered and confirmed the required fields — see the Reservations section
-// of the system prompt above for the conversational flow.
-export const reservationTool = {
+// Gemini function-calling declarations.
+// - offer_time_slots: called when the assistant asks what time the guest wants,
+//   so the frontend can render the options as clickable chips instead of plain text.
+// - summarize_reservation: called once guest count, date and time are collected
+//   and confirmed. This does NOT complete a real booking — the UI shows a summary
+//   card with a link to the real Reservations page. See the system prompt above.
+export const chatTools = {
   functionDeclarations: [
     {
-      name: 'submit_reservation',
+      name: 'offer_time_slots',
       description:
-        'Submit a completed table reservation once the guest has provided and confirmed name, email, date, time and party size.',
+        'Present 2-4 realistic available time options to the guest as clickable buttons, instead of listing them in plain text.',
       parameters: {
         type: 'OBJECT',
         properties: {
-          name: { type: 'STRING', description: "Guest's full name" },
-          email: { type: 'STRING', description: "Guest's email address" },
-          phone: { type: 'STRING', description: "Guest's phone number, if provided" },
-          date: { type: 'STRING', description: 'Reservation date in a clear format, e.g. "2026-09-14" or "September 14, 2026"' },
-          time: { type: 'STRING', description: 'Reservation time, e.g. "7:00 PM"' },
-          guests: { type: 'INTEGER', description: 'Number of guests, 1-8' },
-          specialRequests: { type: 'STRING', description: 'Any special requests, allergies, or occasion notes, if provided' },
+          times: {
+            type: 'ARRAY',
+            items: { type: 'STRING' },
+            description: 'Time options in 24-hour format, e.g. ["18:00", "19:00", "20:00"], within the restaurant\'s opening hours.',
+          },
         },
-        required: ['name', 'email', 'date', 'time', 'guests'],
+        required: ['times'],
+      },
+    },
+    {
+      name: 'summarize_reservation',
+      description:
+        'Call once the guest count, date and time have been collected and confirmed by the guest. This prepares a summary for the guest to complete on the real reservations page — it does not submit a real booking.',
+      parameters: {
+        type: 'OBJECT',
+        properties: {
+          guests: { type: 'INTEGER', description: 'Number of guests, 1-8' },
+          date: { type: 'STRING', description: 'Requested date in a clear, human-readable format (in Norwegian if possible)' },
+          time: { type: 'STRING', description: 'Requested time, e.g. "19:00"' },
+          name: { type: 'STRING', description: "Guest's name, if they gave one" },
+        },
+        required: ['guests', 'date', 'time'],
       },
     },
   ],
 }
 
 export const suggestedPrompts = [
-  "Show today's specials",
-  'Book a table',
-  'Do you have vegetarian options?',
-  'Are there gluten-free dishes?',
-  'What are your opening hours?',
-  'Tell me about private events',
-  'Where are you located?',
+  { icon: '🍽️', label: 'Se menyen', prompt: 'Kan jeg få se menyen?' },
+  { icon: '⚠️', label: 'Allergener', prompt: 'Jeg har noen allergier — kan dere hjelpe meg å finne noe passende?' },
+  { icon: '📅', label: 'Bestill bord', prompt: 'Jeg vil bestille bord.' },
+  { icon: '🥗', label: 'Vegetariske alternativer', prompt: 'Har dere vegetariske alternativer?' },
+  { icon: '🥂', label: 'Selskaper og arrangementer', prompt: 'Kan dere fortelle om selskaper og private arrangementer?' },
 ]
 
 export const assistantIdentity = {
-  name: `${restaurant.name} Assistant`,
+  name: 'Solvane Assistent',
   restaurantName: restaurant.name,
   logoInitial: restaurant.name.charAt(0),
-  welcomeTitle: `Welcome to ${restaurant.name}`,
+  welcomeTitle: `Velkommen til ${restaurant.name}`,
   welcomeMessage:
-    "I'm your AI concierge — ask me about the menu, hours, reservations, private events or gift cards.",
+    'Hei! 👋 Jeg kan hjelpe deg med menyen, allergener, bordbestilling og spørsmål om restauranten. Hva lurer du på?',
 }
 
 export default buildSystemPrompt

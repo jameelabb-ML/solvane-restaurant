@@ -2,43 +2,43 @@ import LegalPage from '../components/common/LegalPage.jsx'
 
 const sections = [
   {
-    heading: '1. Acceptance of Terms',
+    heading: '1. Aksept av vilkårene',
     paragraphs: [
-      'By accessing or using this website, you agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, please do not use this site.',
+      'Ved å bruke denne nettsiden godtar du disse vilkårene. Hvis du ikke er enig i noen del av vilkårene, ber vi deg om ikke å bruke siden.',
     ],
   },
   {
-    heading: '2. Reservations',
+    heading: '2. Reservasjoner',
     paragraphs: [
-      'Reservation requests submitted through this site are subject to availability and confirmation. We recommend arriving within 15 minutes of your reserved time; tables held beyond that window may be released. Reservations can be modified or canceled up to 24 hours in advance by contacting us directly.',
+      'Reservasjonsforespørsler sendt via denne siden er avhengig av ledig kapasitet og bekreftelse. Vi anbefaler å ankomme innen 15 minutter etter reservert tidspunkt; bord som holdes utover dette kan bli frigitt. Reservasjoner kan endres eller avbestilles kostnadsfritt inntil 24 timer i forveien ved å kontakte oss direkte.',
     ],
   },
   {
-    heading: '3. Gift Cards',
+    heading: '3. Gavekort',
     paragraphs: [
-      'Gift cards do not expire and may be redeemed for dining, private events, or beverage purchases. Gift cards are non-refundable and cannot be exchanged for cash except where required by law.',
+      'Gavekort utløper ikke, og kan brukes til middag, private arrangementer eller drikkevarer. Gavekort refunderes ikke, og kan ikke veksles inn i kontanter med mindre loven krever det.',
     ],
   },
   {
-    heading: '4. Intellectual Property',
+    heading: '4. Immaterielle rettigheter',
     paragraphs: [
-      'All content on this site, including text, images, and branding, is the property of Solvane and may not be reproduced or used without permission.',
+      'Alt innhold på denne siden, inkludert tekst, bilder og merkevare, tilhører Solvane og kan ikke gjengis eller brukes uten tillatelse.',
     ],
   },
   {
-    heading: '5. Limitation of Liability',
+    heading: '5. Ansvarsbegrensning',
     paragraphs: [
-      'This website is provided "as is." While we strive for accuracy, menu items, pricing, and availability are subject to change without notice.',
+      'Denne nettsiden leveres «som den er». Vi tilstreber nøyaktighet, men retter, priser og tilgjengelighet kan endres uten varsel.',
     ],
   },
   {
-    heading: '6. Changes to These Terms',
+    heading: '6. Endringer i vilkårene',
     paragraphs: [
-      'We may update these Terms & Conditions from time to time. Continued use of this site after changes are posted constitutes acceptance of the revised terms.',
+      'Vi kan oppdatere disse vilkårene fra tid til annen. Fortsatt bruk av siden etter at endringer er publisert innebærer at du godtar de reviderte vilkårene.',
     ],
   },
 ]
 
 export default function Terms() {
-  return <LegalPage title="Terms & Conditions" updated="January 2026" sections={sections} />
+  return <LegalPage title="Vilkår" updated="januar 2026" sections={sections} />
 }

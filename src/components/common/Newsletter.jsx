@@ -22,7 +22,7 @@ export default function Newsletter({ dark = false }) {
         }`}
       >
         <CheckCircle2 size={20} className="text-gold-500 shrink-0" />
-        <p className="text-sm">Thank you — you&apos;re on the list for seasonal menus and invitations.</p>
+        <p className="text-sm">Takk — du står nå på listen for sesongmenyer og invitasjoner.</p>
       </div>
     )
   }
@@ -30,13 +30,13 @@ export default function Newsletter({ dark = false }) {
   return (
     <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
       <label htmlFor="newsletter-email" className="sr-only">
-        Email address
+        E-postadresse
       </label>
       <input
         id="newsletter-email"
         type="email"
         required
-        placeholder="Your email address"
+        placeholder="Din e-postadresse"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className={`w-full flex-1 rounded-full border px-5 py-3 text-sm outline-none transition-colors focus:border-gold-400 ${
@@ -46,7 +46,7 @@ export default function Newsletter({ dark = false }) {
         }`}
       />
       <Button type="submit" variant={dark ? 'gold' : 'primary'} size="md" className="shrink-0">
-        Subscribe <Send size={15} />
+        Meld deg på <Send size={15} />
       </Button>
     </form>
   )

@@ -4,45 +4,45 @@ export const testimonials = [
   {
     id: 1,
     name: 'Margaret Ellison',
-    role: 'Portland Monthly',
+    role: 'Oslo Spiser',
     quote:
-      'Solvane is the rare tasting menu that feels intimate rather than performative. Every course tells you exactly where it came from.',
+      'Solvane er en sjelden smaksmeny som føles intim fremfor tilgjort. Hver rett forteller nøyaktig hvor den kommer fra.',
     rating: 5,
     avatar: avatarPlaceholder('margaret-ellison'),
   },
   {
     id: 2,
     name: 'James Whitfield',
-    role: 'Regular Guest',
+    role: 'Fast gjest',
     quote:
-      'We celebrate every anniversary here. The staff remembered our story from three years ago without us saying a word.',
+      'Vi feirer hver bryllupsdag her. Personalet husket historien vår fra tre år siden uten at vi sa et ord.',
     rating: 5,
     avatar: avatarPlaceholder('james-whitfield'),
   },
   {
     id: 3,
     name: 'Priya Nandan',
-    role: 'Food & Wine Traveler',
+    role: 'Mat- og vinreisende',
     quote:
-      'The duck breast alone is worth the trip to Portland. Understated plating, enormous flavor — exactly what New Nordic should be.',
+      'Andebrystet alene er verdt turen til Oslo. Nedtonet servering, enorm smak — akkurat det ny-nordisk skal være.',
     rating: 5,
     avatar: avatarPlaceholder('priya-nandan'),
   },
   {
     id: 4,
     name: 'Daniel Ostrowski',
-    role: 'Private Event Host',
+    role: 'Arrangerte bedriftsmiddag',
     quote:
-      'We hosted our company dinner in the private dining room and it was flawless from the welcome drink to the last course.',
+      'Vi holdt bedriftsmiddagen vår i det private rommet, og alt var feilfritt — fra velkomstdrinken til siste rett.',
     rating: 5,
     avatar: avatarPlaceholder('daniel-ostrowski'),
   },
   {
     id: 5,
     name: 'Corinne Vasseur',
-    role: 'Local Guide Contributor',
+    role: 'Bidragsyter, lokal guide',
     quote:
-      'A masterclass in restraint. Nothing on the plate is there by accident, and the room feels like a warm Nordic cabin.',
+      'En mesterklasse i måtehold. Ingenting på tallerkenen er tilfeldig, og rommet føles som en varm nordisk hytte.',
     rating: 5,
     avatar: avatarPlaceholder('corinne-vasseur'),
   },

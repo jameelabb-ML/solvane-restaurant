@@ -24,12 +24,12 @@ export default function ContactForm() {
         className="flex flex-col items-center gap-4 py-10 text-center"
       >
         <CheckCircle2 size={32} className="text-gold-500" />
-        <h3 className="heading-md text-charcoal dark:text-cream-100">Message Sent</h3>
+        <h3 className="heading-md text-charcoal dark:text-cream-100">Melding sendt</h3>
         <p className="max-w-sm text-sm text-charcoal-600 dark:text-cream-100/70">
-          Thanks for reaching out, {form.name || 'friend'}. Our team will get back to you shortly.
+          Takk for at du tok kontakt, {form.name || 'du'}. Teamet vårt svarer deg så snart som mulig.
         </p>
         <Button variant="outline" onClick={() => { setForm(initialState); setSubmitted(false) }}>
-          Send Another Message
+          Send en ny melding
         </Button>
       </motion.div>
     )
@@ -38,21 +38,21 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <Field label="Name">
-          <input required value={form.name} onChange={update('name')} className={fieldClasses} placeholder="Your name" />
+        <Field label="Navn">
+          <input required value={form.name} onChange={update('name')} className={fieldClasses} placeholder="Ditt navn" />
         </Field>
-        <Field label="Email">
-          <input required type="email" value={form.email} onChange={update('email')} className={fieldClasses} placeholder="you@email.com" />
+        <Field label="E-post">
+          <input required type="email" value={form.email} onChange={update('email')} className={fieldClasses} placeholder="deg@epost.no" />
         </Field>
       </div>
-      <Field label="Subject">
-        <input value={form.subject} onChange={update('subject')} className={fieldClasses} placeholder="How can we help?" />
+      <Field label="Emne">
+        <input value={form.subject} onChange={update('subject')} className={fieldClasses} placeholder="Hva kan vi hjelpe deg med?" />
       </Field>
-      <Field label="Message">
-        <textarea required rows={5} value={form.message} onChange={update('message')} className={`${fieldClasses} resize-none`} placeholder="Your message..." />
+      <Field label="Melding">
+        <textarea required rows={5} value={form.message} onChange={update('message')} className={`${fieldClasses} resize-none`} placeholder="Din melding..." />
       </Field>
       <Button type="submit" size="lg" className="w-full sm:w-auto sm:self-start">
-        Send Message
+        Send melding
       </Button>
     </form>
   )

@@ -13,7 +13,7 @@ const setMeta = (name, content, attr = 'name') => {
 
 export default function Seo({ title, description, image }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | Solvane` : 'Solvane — Modern Nordic Fine Dining'
+    const fullTitle = title ? `${title} | Solvane` : 'Solvane — Moderne nordisk fine dining'
     document.title = fullTitle
     setMeta('description', description)
     setMeta('og:title', fullTitle, 'property')

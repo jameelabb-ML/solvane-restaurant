@@ -1,28 +1,28 @@
 export const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'Menu', path: '/menu' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'About', path: '/about' },
-  { label: 'Private Events', path: '/private-events' },
-  { label: 'Gift Cards', path: '/gift-cards' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'Hjem', path: '/' },
+  { label: 'Meny', path: '/menu' },
+  { label: 'Galleri', path: '/gallery' },
+  { label: 'Om oss', path: '/about' },
+  { label: 'Private arrangementer', path: '/private-events' },
+  { label: 'Gavekort', path: '/gift-cards' },
+  { label: 'Kontakt', path: '/contact' },
 ]
 
 export const footerLinks = {
   explore: [
-    { label: 'Menu', path: '/menu' },
-    { label: 'Gallery', path: '/gallery' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Reservations', path: '/reservations' },
+    { label: 'Meny', path: '/menu' },
+    { label: 'Galleri', path: '/gallery' },
+    { label: 'Om oss', path: '/about' },
+    { label: 'Reservasjon', path: '/reservations' },
   ],
   services: [
-    { label: 'Private Events', path: '/private-events' },
-    { label: 'Gift Cards', path: '/gift-cards' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Private arrangementer', path: '/private-events' },
+    { label: 'Gavekort', path: '/gift-cards' },
+    { label: 'Kontakt', path: '/contact' },
   ],
   legal: [
-    { label: 'Privacy Policy', path: '/privacy' },
-    { label: 'Terms & Conditions', path: '/terms' },
+    { label: 'Personvern', path: '/privacy' },
+    { label: 'Vilkår', path: '/terms' },
   ],
 }
 

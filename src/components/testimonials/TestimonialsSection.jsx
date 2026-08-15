@@ -18,14 +18,14 @@ export default function TestimonialsSection() {
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             align="left"
-            eyebrow="Guest Stories"
-            title="What our guests are saying"
+            eyebrow="Gjestehistorier"
+            title="Hva gjestene våre sier"
           />
           <div className="hidden gap-3 sm:flex">
             <button
               type="button"
               onClick={() => scroll(-1)}
-              aria-label="Previous testimonials"
+              aria-label="Forrige anmeldelser"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-charcoal/15 text-charcoal transition-colors hover:border-gold-400 hover:text-gold-500 dark:border-cream-100/20 dark:text-cream-100"
             >
               <ChevronLeft size={18} />
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
             <button
               type="button"
               onClick={() => scroll(1)}
-              aria-label="Next testimonials"
+              aria-label="Neste anmeldelser"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-charcoal/15 text-charcoal transition-colors hover:border-gold-400 hover:text-gold-500 dark:border-cream-100/20 dark:text-cream-100"
             >
               <ChevronRight size={18} />

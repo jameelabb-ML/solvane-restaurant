@@ -1,5 +1,5 @@
 import { GEMINI_CONFIG, isGeminiConfigured } from '../config/gemini.js'
-import { buildSystemPrompt, reservationTool } from '../config/restaurantContext.js'
+import { buildSystemPrompt, chatTools } from '../config/restaurantContext.js'
 
 export class ChatError extends Error {
   constructor(message, type = 'unknown') {
@@ -49,9 +49,9 @@ const RETRYABLE_TYPES = new Set(['rate_limit', 'unavailable'])
 /**
  * Streams a chat reply from Gemini, invoking onChunk(deltaText) as tokens arrive.
  * Resolves with { text, functionCall } — functionCall is set when the model
- * decides to call the submit_reservation tool instead of (or in addition to)
- * replying with text. Automatically retries once on a 429 (rate limit) or 503
- * (server temporarily overloaded) after a short backoff.
+ * decides to call one of the chat tools (offer_time_slots, summarize_reservation)
+ * instead of replying with text. Automatically retries once on a 429 (rate
+ * limit) or 503 (server temporarily overloaded) after a short backoff.
  */
 export async function streamChatReply(args) {
   try {
@@ -69,7 +69,7 @@ export async function streamChatReply(args) {
 async function attemptStreamChatReply({ messages, onChunk, signal }) {
   if (!isGeminiConfigured()) {
     throw new ChatError(
-      'The AI assistant needs a Gemini API key. Add VITE_GEMINI_API_KEY to a .env.local file (see .env.example) and restart the dev server.',
+      'Assistenten trenger en Gemini API-nøkkel. Legg til VITE_GEMINI_API_KEY i en .env.local-fil (se .env.example) og start utviklingsserveren på nytt.',
       'missing_key'
     )
   }
@@ -86,36 +86,36 @@ async function attemptStreamChatReply({ messages, onChunk, signal }) {
       body: JSON.stringify({
         contents: toGeminiContents(messages),
         systemInstruction: { parts: [{ text: buildSystemPrompt() }] },
-        tools: [reservationTool],
+        tools: [chatTools],
         generationConfig: { temperature, maxOutputTokens },
       }),
     })
   } catch (err) {
-    if (err.name === 'AbortError') throw new ChatError('Request cancelled.', 'aborted')
-    throw new ChatError('Could not reach the AI service. Check your connection and try again.', 'network')
+    if (err.name === 'AbortError') throw new ChatError('Forespørselen ble avbrutt.', 'aborted')
+    throw new ChatError('Fikk ikke kontakt med AI-tjenesten. Sjekk internettforbindelsen og prøv igjen.', 'network')
   }
 
   if (!response.ok) {
     const message = await parseErrorResponse(response)
     if (response.status === 400 && /API key/i.test(message)) {
-      throw new ChatError('That Gemini API key looks invalid. Double-check VITE_GEMINI_API_KEY.', 'missing_key')
+      throw new ChatError('Denne Gemini API-nøkkelen ser ugyldig ut. Dobbeltsjekk VITE_GEMINI_API_KEY.', 'missing_key')
     }
     if (response.status === 404) {
       throw new ChatError(
-        `The model "${model}" isn't available for this API key. Update GEMINI_CONFIG.model in src/config/gemini.js to a current model (see ai.google.dev/gemini-api/docs/models).`,
+        `Modellen «${model}» er ikke tilgjengelig for denne API-nøkkelen. Oppdater GEMINI_CONFIG.model i src/config/gemini.js til en gyldig modell (se ai.google.dev/gemini-api/docs/models).`,
         'api'
       )
     }
     if (response.status === 429) {
       throw new ChatError(
-        "This Gemini key has hit its free-tier rate limit for the moment. Wait about a minute and try again — or check usage at aistudio.google.com.",
+        'Denne Gemini-nøkkelen har nådd grensen for gratisnivået akkurat nå. Vent et minutt og prøv igjen — eller sjekk forbruket på aistudio.google.com.',
         'rate_limit'
       )
     }
     if (response.status === 503) {
-      throw new ChatError("The AI service is temporarily overloaded. Retrying...", 'unavailable')
+      throw new ChatError('AI-tjenesten er midlertidig overbelastet. Prøver igjen...', 'unavailable')
     }
-    throw new ChatError(message || 'The AI service returned an error.', 'api')
+    throw new ChatError(message || 'AI-tjenesten returnerte en feil.', 'api')
   }
 
   const state = { full: '', functionCall: null, onChunk }
@@ -126,7 +126,7 @@ async function attemptStreamChatReply({ messages, onChunk, signal }) {
     readParts(data?.candidates?.[0]?.content?.parts, state)
     if (state.full) onChunk?.(state.full, state.full)
     if (!state.full && !state.functionCall) {
-      throw new ChatError('The AI assistant did not return a response. Please try again.', 'api')
+      throw new ChatError('AI-assistenten svarte ikke. Prøv igjen.', 'api')
     }
     return { text: state.full, functionCall: state.functionCall }
   }

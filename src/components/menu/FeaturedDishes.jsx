@@ -10,9 +10,9 @@ export default function FeaturedDishes() {
     <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Featured Dishes"
-          title="Chef's seasonal selections"
-          description="A glimpse of what's on the table this week — each dish built around what our farmers and foragers bring us."
+          eyebrow="Utvalgte retter"
+          title="Kokkens sesongutvalg"
+          description="Et glimt av det som står på bordet denne uken — hver rett bygget rundt det gårdene og sankerne våre gir oss."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -23,7 +23,7 @@ export default function FeaturedDishes() {
 
         <div className="mt-14 flex justify-center">
           <Button to="/menu" variant="outline" size="lg">
-            View Full Menu
+            Se hele menyen
           </Button>
         </div>
       </div>

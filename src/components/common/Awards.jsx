@@ -7,8 +7,8 @@ export default function Awards() {
     <section className="bg-charcoal-900 py-16 sm:py-20">
       <div className="container-page">
         <FadeIn className="mb-12 flex flex-col items-center gap-2 text-center">
-          <span className="eyebrow">Recognition</span>
-          <h2 className="heading-md text-cream-100">Awards &amp; Accolades</h2>
+          <span className="eyebrow">Anerkjennelse</span>
+          <h2 className="heading-md text-cream-100">Priser og utmerkelser</h2>
         </FadeIn>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

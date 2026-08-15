@@ -1,160 +1,160 @@
-// Fictional restaurant brand data — used throughout the site.
-// Solvane is not a real business; all content, contacts and imagery are for demo purposes.
+// Fiktiv restaurantprofil — brukes gjennom hele nettsiden.
+// Solvane er ikke en reell virksomhet; alt innhold, kontaktinfo og bilder er kun til demoformål.
 
 export const restaurant = {
   name: 'Solvane',
-  tagline: 'A Quiet Table, Nordic at Heart',
+  tagline: 'Et stille bord, nordisk i hjertet',
   shortDescription:
-    'Modern Nordic fine dining rooted in seasonal ingredients, quiet craftsmanship and warm Scandinavian hospitality.',
+    'Moderne nordisk fine dining bygget på sesongens råvarer, stillferdig håndverk og varm skandinavisk gjestfrihet.',
   founded: 2016,
-  cuisine: 'Modern Scandinavian · New Nordic',
-  priceRange: '$$$$',
+  cuisine: 'Moderne skandinavisk · Ny-nordisk',
+  priceRange: 'kr kr kr kr',
 
   contact: {
-    phone: '+1 (503) 555-0187',
-    phoneHref: 'tel:+15035550187',
-    email: 'reservations@solvanerestaurant.com',
-    eventsEmail: 'events@solvanerestaurant.com',
+    phone: '+47 22 44 10 20',
+    phoneHref: 'tel:+4722441020',
+    email: 'post@solvane.no',
+    eventsEmail: 'arrangement@solvane.no',
     address: {
-      line1: '128 Fjeld Lane',
-      line2: 'Pearl District',
-      city: 'Portland',
-      state: 'OR',
-      zip: '97205',
-      country: 'United States',
-      full: '128 Fjeld Lane, Pearl District, Portland, OR 97205',
+      line1: 'Inkognitogata 9',
+      line2: 'Frogner',
+      city: 'Oslo',
+      state: '',
+      zip: '0258',
+      country: 'Norge',
+      full: 'Inkognitogata 9, 0258 Oslo',
     },
-    mapEmbedQuery: '128 Fjeld Lane, Portland, OR 97205',
+    mapEmbedQuery: 'Inkognitogata 9, 0258 Oslo',
   },
 
   hours: [
-    { day: 'Monday', time: 'Closed' },
-    { day: 'Tuesday', time: '5:30 PM – 10:00 PM' },
-    { day: 'Wednesday', time: '5:30 PM – 10:00 PM' },
-    { day: 'Thursday', time: '5:30 PM – 10:00 PM' },
-    { day: 'Friday', time: '5:00 PM – 11:00 PM' },
-    { day: 'Saturday', time: '5:00 PM – 11:00 PM' },
-    { day: 'Sunday', time: '11:00 AM – 3:00 PM · Brunch' },
+    { day: 'Mandag', time: 'Stengt' },
+    { day: 'Tirsdag', time: '17.30 – 22.00' },
+    { day: 'Onsdag', time: '17.30 – 22.00' },
+    { day: 'Torsdag', time: '17.30 – 22.00' },
+    { day: 'Fredag', time: '17.00 – 23.00' },
+    { day: 'Lørdag', time: '17.00 – 23.00' },
+    { day: 'Søndag', time: '12.00 – 16.00 · Brunsj' },
   ],
 
   social: {
-    instagram: 'https://instagram.com/solvane.restaurant',
-    facebook: 'https://facebook.com/solvanerestaurant',
-    pinterest: 'https://pinterest.com/solvanerestaurant',
+    instagram: 'https://instagram.com/solvane.oslo',
+    facebook: 'https://facebook.com/solvaneoslo',
+    pinterest: 'https://pinterest.com/solvaneoslo',
   },
 
   story: {
-    eyebrow: 'Our Story',
-    heading: 'Born from long summers and longer tables',
+    eyebrow: 'Vår historie',
+    heading: 'Født av lange somre og enda lengre middager',
     paragraphs: [
-      'Solvane began as a memory — of midsummer evenings on the Norwegian coast, tables set beneath birch trees, and food that tasted of the place it came from. In 2016, Chef Magnus Lindholm brought that memory to Portland, translating it into a dining room built on restraint, warmth and time.',
-      'The name Solvane borrows from the Scandinavian words for "sun" and "custom" — a nod to the unhurried rituals of Nordic hospitality, where a meal is never rushed and every guest is treated like family returning home.',
-      'Nearly a decade later, Solvane remains a small, deliberate room: nineteen tables, an open hearth kitchen, and a menu that changes with the Pacific Northwest seasons rather than the calendar.',
+      'Solvane startet som et minne — av lyse sommerkvelder på vestlandskysten, bord dekket under bjørketrær, og mat som smakte av stedet den kom fra. I 2016 tok kokk Magnus Lindholm med seg det minnet til Oslo, og formet det til en spisesal bygget på ro, varme og tid.',
+      'Navnet Solvane er satt sammen av «sol» og «vane» — en påminnelse om de rolige ritualene i nordisk gjestfrihet, der et måltid aldri hastes gjennom, og hver gjest blir møtt som familie som endelig er hjemme igjen.',
+      'Nesten et tiår senere er Solvane fortsatt et lite, gjennomtenkt lokale: nitten bord, et åpent ildstedskjøkken, og en meny som følger de norske årstidene fremfor kalenderen.',
     ],
   },
 
   mission: {
-    heading: 'Our Mission',
-    text: 'To honor the quiet dignity of simple ingredients — treating each vegetable, grain and cut of fish with the same care as the rarest delicacy — and to share that care generously with every guest who joins our table.',
+    heading: 'Vårt oppdrag',
+    text: 'Å hedre den stille verdigheten i enkle råvarer — å behandle hver grønnsak, hvert korn og hvert stykke fisk med samme omsorg som den sjeldneste delikatesse — og å dele den omsorgen raust med hver eneste gjest som setter seg til bords.',
   },
 
   vision: {
-    heading: 'Our Vision',
-    text: 'A dining room where Scandinavian minimalism and Pacific Northwest abundance meet — where sustainability is not a marketing word but a daily discipline, and where hospitality feels like being welcomed into someone\'s home.',
+    heading: 'Vår visjon',
+    text: 'En spisesal der skandinavisk enkelhet møter norsk overflod — der bærekraft ikke er et markedsføringsord, men en daglig praksis, og der gjestfrihet føles som å bli ønsket velkommen hjem til noen.',
   },
 
   values: [
     {
-      title: 'Seasonal Integrity',
+      title: 'Sesongens integritet',
       description:
-        'We build our menu around what the region offers each week, working directly with under twenty local farms, foragers and fisheries.',
+        'Vi bygger menyen rundt det regionen har å by på hver uke, i direkte samarbeid med under tjue lokale gårder, sankere og fiskere.',
     },
     {
-      title: 'Quiet Craftsmanship',
+      title: 'Stillferdig håndverk',
       description:
-        'Every dish is built through traditional Nordic techniques — curing, smoking, pickling and slow-fermenting — practiced with patience rather than spectacle.',
+        'Hver rett bygges gjennom tradisjonelle nordiske teknikker — gravning, røyking, sylting og langsom fermentering — utført med tålmodighet fremfor skue.',
     },
     {
-      title: 'Warm Hospitality',
+      title: 'Varm gjestfrihet',
       description:
-        'Service at Solvane is attentive without formality — the kind of care you would offer a guest in your own home.',
+        'Service hos Solvane er oppmerksom uten å være stiv — den samme omsorgen du ville tilbudt en gjest i ditt eget hjem.',
     },
     {
-      title: 'Mindful Sustainability',
+      title: 'Bevisst bærekraft',
       description:
-        'From root to peel, our kitchen operates on a near zero-waste philosophy, composting, fermenting and repurposing what most kitchens discard.',
+        'Fra rot til skrell driver kjøkkenet vårt etter en nesten avfallsfri filosofi — vi komposterer, fermenterer og gjenbruker det de fleste kjøkken kaster.',
     },
   ],
 
   chef: {
-    name: 'Chef Magnus Lindholm',
-    title: 'Executive Chef & Co-Founder',
+    name: 'Kokk Magnus Lindholm',
+    title: 'Kjøkkensjef og medgründer',
     bioShort:
-      'Trained in Copenhagen\'s New Nordic kitchens before returning to his family roots in the Pacific Northwest.',
+      'Utdannet i Københavns ny-nordiske kjøkken, før han vendte tilbake til røttene sine på Vestlandet.',
     bio: [
-      'Magnus Lindholm grew up between two coastlines — summers with his grandmother in a fishing village outside Bergen, and winters in Oregon, where his family settled when he was nine. That duality shapes everything he cooks.',
-      'He trained for six years in Copenhagen, working under pioneers of the New Nordic movement before returning home to open Solvane with his partner, sommelier Elin Kirkeby, in 2016.',
-      'His cooking favors restraint over abundance: a single, perfect scallop over a crowded plate. He sources obsessively, forages personally, and still visits the Saturday farmers market himself most weeks.',
+      'Magnus Lindholm vokste opp mellom to kyster — somre hos bestemoren i en fiskevær utenfor Bergen, og resten av året i Oslo, der familien slo seg ned da han var ni år. Denne todelte oppveksten preger alt han lager.',
+      'Han utdannet seg i seks år i København, under pionerene bak den ny-nordiske bevegelsen, før han flyttet hjem for å åpne Solvane sammen med sin samarbeidspartner, sommelier Elin Kirkeby, i 2016.',
+      'Matlagingen hans handler om måtehold fremfor overflod: én perfekt kamskjell fremfor en overfylt tallerken. Han er nøye med råvarene, sanker selv, og besøker fortsatt lørdagsmarkedet personlig de fleste uker.',
     ],
     quote:
-      '"I don\'t want my food to impress you. I want it to feel like it was always meant to be on your table."',
+      '«Jeg vil ikke at maten min skal imponere deg. Jeg vil at den skal føles som om den alltid har hørt hjemme på bordet ditt.»',
     credentials: [
-      'Six years cooking in Copenhagen\'s New Nordic kitchens',
-      'James Beard Foundation semifinalist, Best Chef Northwest',
-      'Featured in Nordic Table Journal and Pacific Coast Gastronome',
+      'Seks år i Københavns ny-nordiske kjøkken',
+      'Nominert til Årets Kokk, Norsk Kulinarisk Gilde',
+      'Omtalt i Gastro Norge og Nordisk Smak',
     ],
   },
 
   sustainability: {
-    eyebrow: 'Sustainability',
-    heading: 'Rooted in the land we borrow from',
+    eyebrow: 'Bærekraft',
+    heading: 'Forankret i landet vi låner av',
     intro:
-      'Sustainability at Solvane is not a program — it is the way the kitchen has operated since the day it opened.',
+      'Bærekraft hos Solvane er ikke et program — det er slik kjøkkenet har drevet siden første åpningsdag.',
     pillars: [
       {
-        title: 'Root-to-Peel Kitchen',
+        title: 'Rot-til-skrell-kjøkken',
         description:
-          'Vegetable trimmings become stocks, ferments and staff-meal condiments. Less than 3% of our food purchases end up as waste.',
+          'Grønnsaksrester blir til kraft, ferment og tilbehør til de ansattes måltider. Under 3 % av matinnkjøpene våre ender som avfall.',
       },
       {
-        title: 'Regional Sourcing',
+        title: 'Regionalt råvarevalg',
         description:
-          'Over 80% of our ingredients travel less than 150 miles, from partner farms in the Willamette Valley to day-boat fisheries on the coast.',
+          'Over 80 % av råvarene våre reiser mindre enn 20 mil, fra samarbeidsgårder på Østlandet til kystfiske langs Vestlandet.',
       },
       {
-        title: 'Regenerative Partnerships',
+        title: 'Regenerative samarbeid',
         description:
-          'We work exclusively with farms practicing regenerative agriculture and fisheries certified for sustainable harvest limits.',
+          'Vi samarbeider utelukkende med gårder som praktiserer regenerativt jordbruk, og fiskere med sertifiserte, bærekraftige fangstkvoter.',
       },
       {
-        title: 'Low-Impact Operations',
+        title: 'Skånsom drift',
         description:
-          'Solar-assisted kitchen power, filtered still and sparkling water service, and a fully composted service program.',
+          'Solcelledrevet kjøkkenstrøm, filtrert stille- og kullsyrevann, og et fullstendig komposteringsprogram i restauranten.',
       },
     ],
   },
 
   timeline: [
-    { year: '2014', title: 'The Idea', description: 'Magnus and Elin begin sketching Solvane on napkins after a summer in Bergen.' },
-    { year: '2016', title: 'Doors Open', description: 'Solvane opens in the Pearl District with nineteen tables and a five-course menu.' },
-    { year: '2018', title: 'First Recognition', description: 'Named "Restaurant of the Year" by the Pacific Northwest Culinary Guild.' },
-    { year: '2020', title: 'The Hearth Expansion', description: 'An open-hearth kitchen and chef\'s counter are added for eight guests nightly.' },
-    { year: '2022', title: 'Sustainability Milestone', description: 'Solvane reaches its root-to-peel, near zero-waste kitchen standard.' },
-    { year: '2024', title: 'Nordic Gastronomy Circle Award', description: 'Recognized among the top 50 Nordic-inspired tables in North America.' },
+    { year: '2014', title: 'Ideen', description: 'Magnus og Elin begynner å skissere Solvane på papirservietter etter en sommer i Bergen.' },
+    { year: '2016', title: 'Åpningsdagen', description: 'Solvane åpner på Frogner med nitten bord og en meny på fem retter.' },
+    { year: '2018', title: 'Første anerkjennelse', description: 'Kåret til «Årets restaurant» av Norsk Kulinarisk Gilde.' },
+    { year: '2020', title: 'Ildstedsutvidelsen', description: 'Et åpent ildstedskjøkken og kokkebenk for åtte gjester per kveld står ferdig.' },
+    { year: '2022', title: 'Bærekraftsmilepæl', description: 'Solvane når sin rot-til-skrell, nesten avfallsfrie standard på kjøkkenet.' },
+    { year: '2024', title: 'Nordisk Gastronomipris', description: 'Kåret blant de 50 beste nordisk-inspirerte restaurantene i Norden.' },
   ],
 
   awards: [
-    { year: '2024', title: 'Nordic Gastronomy Circle Award', org: 'Top 50 Nordic-Inspired Tables, North America' },
-    { year: '2023', title: 'Best Tasting Menu', org: 'Pacific Northwest Culinary Guild' },
-    { year: '2022', title: 'Sustainable Kitchen Recognition', org: 'Farm & Fjord Alliance' },
-    { year: '2018', title: 'Restaurant of the Year', org: 'Pacific Northwest Culinary Guild' },
+    { year: '2024', title: 'Nordisk Gastronomipris', org: 'Topp 50 nordisk-inspirerte restauranter' },
+    { year: '2023', title: 'Beste smaksmeny', org: 'Norsk Kulinarisk Gilde' },
+    { year: '2022', title: 'Anerkjennelse for bærekraftig kjøkken', org: 'Gård & Fjord-alliansen' },
+    { year: '2018', title: 'Årets restaurant', org: 'Norsk Kulinarisk Gilde' },
   ],
 
   stats: [
-    { label: 'Years of Craft', value: '9+' },
-    { label: 'Partner Farms & Foragers', value: '18' },
-    { label: 'Seats Nightly', value: '64' },
-    { label: 'Guest Rating', value: '4.9/5' },
+    { label: 'Års håndverk', value: '9+' },
+    { label: 'Samarbeidsgårder og sankere', value: '18' },
+    { label: 'Seter per kveld', value: '64' },
+    { label: 'Gjestevurdering', value: '4,9/5' },
   ],
 }
 

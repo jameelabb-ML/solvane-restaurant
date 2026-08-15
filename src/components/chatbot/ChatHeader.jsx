@@ -11,14 +11,14 @@ export default function ChatHeader({ onClose, onClear, showClear }) {
         </div>
         <div>
           <p className="font-display text-base leading-tight text-charcoal-800 dark:text-cream-100">
-            {assistantIdentity.restaurantName}
+            {assistantIdentity.name}
           </p>
           <p className="flex items-center gap-1.5 text-xs text-charcoal-500 dark:text-cream-100/60">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
             </span>
-            AI Assistant · Online
+            Pålogget
           </p>
         </div>
       </div>
@@ -28,8 +28,8 @@ export default function ChatHeader({ onClose, onClear, showClear }) {
           <button
             type="button"
             onClick={onClear}
-            aria-label="Clear conversation"
-            title="Clear conversation"
+            aria-label="Tøm samtalen"
+            title="Tøm samtalen"
             className="rounded-full p-2 text-charcoal-500 transition-colors hover:bg-white/60 hover:text-charcoal-800 dark:text-cream-100/50 dark:hover:bg-white/10 dark:hover:text-cream-100"
           >
             <RotateCcw size={16} />
@@ -38,7 +38,7 @@ export default function ChatHeader({ onClose, onClear, showClear }) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close chat"
+          aria-label="Lukk chat"
           className="rounded-full p-2 text-charcoal-500 transition-colors hover:bg-white/60 hover:text-charcoal-800 dark:text-cream-100/50 dark:hover:bg-white/10 dark:hover:text-cream-100"
         >
           <X size={18} />

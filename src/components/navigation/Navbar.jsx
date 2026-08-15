@@ -51,12 +51,12 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <ThemeToggle className="hidden sm:flex" />
             <Button to="/reservations" size="sm" className="hidden sm:inline-flex">
-              Reserve
+              Reserver
             </Button>
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
+              aria-label="Åpne meny"
               className="flex h-9 w-9 items-center justify-center rounded-full text-charcoal dark:text-cream-100 lg:hidden"
             >
               <Menu size={22} />

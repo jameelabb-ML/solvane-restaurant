@@ -23,12 +23,12 @@ export default function MenuCard({ item, index = 0 }) {
         <div className="absolute left-3 top-3 flex flex-col gap-1.5">
           {item.chefRecommended && (
             <span className="inline-flex items-center gap-1 rounded-full bg-charcoal/90 px-2.5 py-1 text-[11px] font-medium text-gold-300 backdrop-blur">
-              <ChefHat size={11} /> Chef&apos;s Pick
+              <ChefHat size={11} /> Kokkens favoritt
             </span>
           )}
           {item.popular && (
             <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-charcoal backdrop-blur">
-              <Flame size={11} className="text-gold-500" /> Popular
+              <Flame size={11} className="text-gold-500" /> Populær
             </span>
           )}
         </div>
@@ -37,7 +37,7 @@ export default function MenuCard({ item, index = 0 }) {
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-lg leading-snug text-charcoal dark:text-cream-100">{item.name}</h3>
-          <span className="shrink-0 font-display text-lg text-gold-600 dark:text-gold-300">${item.price}</span>
+          <span className="shrink-0 font-display text-lg text-gold-600 dark:text-gold-300">{item.price} kr</span>
         </div>
         <p className="text-sm leading-relaxed text-charcoal-600 dark:text-cream-100/70">{item.description}</p>
 
@@ -52,7 +52,7 @@ export default function MenuCard({ item, index = 0 }) {
         {item.allergens.length > 0 && (
           <div className="mt-auto flex items-center gap-1.5 pt-2 text-xs text-charcoal-400 dark:text-cream-100/40">
             <TriangleAlert size={12} />
-            <span>Contains: {item.allergens.map((a) => ALLERGEN_LABELS[a]).join(', ')}</span>
+            <span>Inneholder: {item.allergens.map((a) => ALLERGEN_LABELS[a]).join(', ')}</span>
           </div>
         )}
       </div>

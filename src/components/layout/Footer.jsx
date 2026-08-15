@@ -21,7 +21,7 @@ export default function Footer() {
                 href={restaurant.social.instagram}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Solvane on Instagram"
+                aria-label="Solvane på Instagram"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold-400 hover:text-gold-300"
               >
                 <Instagram size={16} />
@@ -30,7 +30,7 @@ export default function Footer() {
                 href={restaurant.social.facebook}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Solvane on Facebook"
+                aria-label="Solvane på Facebook"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-gold-400 hover:text-gold-300"
               >
                 <Facebook size={16} />
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Explore</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Utforsk</h3>
             <ul className="flex flex-col gap-3">
               {footerLinks.explore.map((link) => (
                 <li key={link.path}>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Services</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Tjenester</h3>
             <ul className="flex flex-col gap-3">
               {footerLinks.services.map((link) => (
                 <li key={link.path}>
@@ -62,7 +62,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <h3 className="mb-4 mt-8 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Legal</h3>
+            <h3 className="mb-4 mt-8 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">Juridisk</h3>
             <ul className="flex flex-col gap-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.path}>
@@ -89,7 +89,7 @@ export default function Footer() {
             </a>
             <div className="flex items-start gap-3 text-sm text-cream-100/80">
               <Clock size={16} className="mt-0.5 shrink-0 text-gold-300" />
-              <span>Tue–Sun, see full hours on our Contact page</span>
+              <span>Tir–søn, se fullstendige åpningstider på kontaktsiden</span>
             </div>
           </div>
         </div>
@@ -97,14 +97,14 @@ export default function Footer() {
         <div className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-widest2 text-cream-100/50">
-              Join our table
+              Bli med ved bordet vårt
             </h3>
             <Newsletter dark />
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-2 text-xs text-cream-100/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {restaurant.name}. All rights reserved.</p>
+          <p>© {year} {restaurant.name}. Alle rettigheter forbeholdt.</p>
         </div>
       </div>
     </footer>

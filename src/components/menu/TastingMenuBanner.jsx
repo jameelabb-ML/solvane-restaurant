@@ -20,21 +20,21 @@ export default function TastingMenuBanner() {
         <div className="mt-2 flex flex-wrap items-center justify-center gap-6 text-cream-100">
           <div className="text-center">
             <p className="font-display text-2xl text-gold-300">{tastingMenu.courses}</p>
-            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Courses</p>
+            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Retter</p>
           </div>
           <div className="h-8 w-px bg-white/15" />
           <div className="text-center">
-            <p className="font-display text-2xl text-gold-300">${tastingMenu.price}</p>
-            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Per Guest</p>
+            <p className="font-display text-2xl text-gold-300">{tastingMenu.price} kr</p>
+            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Per gjest</p>
           </div>
           <div className="h-8 w-px bg-white/15" />
           <div className="text-center">
-            <p className="font-display text-2xl text-gold-300">+${tastingMenu.winePairingPrice}</p>
-            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Wine Pairing</p>
+            <p className="font-display text-2xl text-gold-300">+{tastingMenu.winePairingPrice} kr</p>
+            <p className="text-xs uppercase tracking-widest2 text-cream-100/50">Vinmeny</p>
           </div>
         </div>
         <Button to="/reservations" variant="gold" className="mt-4">
-          Reserve the Tasting Menu
+          Reserver smaksmenyen
         </Button>
       </div>
     </FadeIn>

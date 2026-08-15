@@ -11,29 +11,29 @@ export default function Reservations() {
   return (
     <>
       <Seo
-        title="Reservations"
-        description="Reserve your table at Solvane — modern Nordic fine dining in Portland's Pearl District."
+        title="Reservasjon"
+        description="Reserver bord hos Solvane — moderne nordisk fine dining på Frogner i Oslo."
       />
 
       <section className="section-padding bg-cream-200 dark:bg-charcoal-900">
         <div className="container-page grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
           <FadeIn className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <span className="eyebrow">Reservations</span>
+              <span className="eyebrow">Reservasjon</span>
               <h1 className="heading-lg text-charcoal dark:text-cream-100 text-balance">
-                Reserve your table at Solvane
+                Reserver bord hos Solvane
               </h1>
               <p className="body-text">
-                We hold nineteen tables and an eight-seat chef&apos;s counter each evening. For parties of nine or
-                more, please visit our{' '}
+                Vi har nitten bord og en kokkebenk med åtte plasser hver kveld. For selskaper på ni personer eller
+                flere, besøk gjerne siden vår for{' '}
                 <Link to="/private-events" className="text-gold-600 underline underline-offset-2 dark:text-gold-300">
-                  Private Events
-                </Link>{' '}
-                page.
+                  private arrangementer
+                </Link>
+                .
               </p>
             </div>
 
-            <OptimizedImage src={img.tableSetting} alt="A candlelit table at Solvane" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
+            <OptimizedImage src={img.tableSetting} alt="Et bord med levende lys hos Solvane" aspect="aspect-[4/3]" className="rounded-3xl shadow-soft" />
 
             <div className="flex flex-col gap-4 rounded-2xl border border-stone-200 bg-white p-6 dark:border-white/10 dark:bg-charcoal-800">
               <div className="flex items-start gap-3">
@@ -55,7 +55,7 @@ export default function Reservations() {
                 className="flex items-center gap-3 text-sm text-charcoal-600 hover:text-gold-500 dark:text-cream-100/70"
               >
                 <Phone size={16} className="shrink-0 text-gold-500" />
-                Prefer to call? {restaurant.contact.phone}
+                Foretrekker du å ringe? {restaurant.contact.phone}
               </a>
             </div>
           </FadeIn>
