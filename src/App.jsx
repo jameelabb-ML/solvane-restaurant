@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import ThemeProvider from './context/ThemeProvider.jsx'
 import Layout from './components/layout/Layout.jsx'
 import LoadingScreen from './components/common/LoadingScreen.jsx'
@@ -34,6 +35,7 @@ function App() {
           <AnimatedRoutes />
         </Layout>
       </BrowserRouter>
+      <Analytics />
     </ThemeProvider>
   )
 }
