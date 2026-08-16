@@ -4,7 +4,7 @@ import ChatIcon from './ChatIcon.jsx'
 
 export default function ChatHeader({ onClose, onClear, showClear }) {
   return (
-    <div className="flex items-center justify-between gap-3 bg-gradient-to-r from-gold-50 via-[#F6E9CE] to-gold-100 px-5 py-4 dark:bg-none dark:bg-gold-200">
+    <div className="flex items-center justify-between gap-3 bg-gradient-to-r from-gold-50 via-[#F6E9CE] to-gold-100 px-5 py-4 dark:bg-none dark:bg-gold-400">
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/70 text-gold-600 shadow-soft">
           <ChatIcon size={19} />
