@@ -36,7 +36,7 @@ export default function ChatWindow({ chat, onClose, visible }) {
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-5 py-5">
         {isEmpty ? (
           <div className="flex flex-col gap-5">
-            <div className="rounded-2xl bg-gradient-to-br from-gold-100 to-gold-50 p-5 dark:bg-none dark:bg-gold-200">
+            <div className="rounded-2xl bg-gradient-to-br from-gold-100 to-gold-50 p-5 dark:bg-none dark:bg-gold-100">
               <p className="font-display text-lg text-charcoal-900">
                 {assistantIdentity.welcomeTitle}
               </p>
