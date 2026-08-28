@@ -178,7 +178,7 @@ export const assistantIdentity = {
   logoInitial: restaurant.name.charAt(0),
   welcomeTitle: `Velkommen til ${restaurant.name}`,
   welcomeMessage:
-    'Hei! 👋 Jeg kan hjelpe deg med menyen, allergener, bordbestilling og spørsmål om restauranten. Hva lurer du på?',
+    '👋 Hei! Hvordan kan jeg hjelpe deg? Spør meg gjerne om allergener, menyen, anbefalinger eller bordreservasjon. Jeg er tilgjengelig 24/7!',
 }
 
 export default buildSystemPrompt
