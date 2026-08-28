@@ -59,7 +59,7 @@ export default function FloatingButton({ onClick, visible }) {
               transition={{ duration: 0.25, ease: 'easeOut' }}
               className="pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-full border border-gold-300 bg-gold-100 px-3.5 py-2 text-xs font-medium text-charcoal-900 shadow-soft sm:block"
             >
-              Spør oss gjerne
+              Trenger du hjelp? Jeg er tilgjengelig 24/7 👋
             </motion.span>
           )}
         </AnimatePresence>
